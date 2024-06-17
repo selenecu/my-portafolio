@@ -1,6 +1,12 @@
+'use client';
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "../ui/GrandientBg";
 import { GlobeDemo } from "./GridGlobe";
+import Lottie from "react-lottie";
+import { useState } from "react";
+import animationData  from "@/data/confetti.json";
+import MagicButton from "./MagicButton";
+import { IoCodeOutline } from "react-icons/io5";
 
 export const BentoGrid = ({
   className,
@@ -40,6 +46,24 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+  const leftLists =["ReactJs", "Express","Typescript"]
+  const rightLists =["NodeJs", "GraphQL", "NextJs", "TailwindCSS", "VueJs" ]
+  const [copied, setCopied] = useState(false);
+
+  const defaultOptions = {
+    loop: copied,
+    autoplay: copied,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const handleCopy = () => {
+    const text = "hsu@jsmastery.pro";
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+  };
   return (
     <div
       className={cn(
@@ -52,7 +76,7 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,59,68,1) 26%, rgba(93,108,111,1) 100%)",
       }}
     >
-      <div className={`${id === 6} && 'flex justify-center h-full'`}>
+      <div className={`${id === 6 && 'flex justify-center'} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -93,16 +117,38 @@ export const BentoGridItem = ({
         </div>
         {id === 2 && <GlobeDemo />}
         {id === 3 && (
-          <div className="flex gap-l lg:gap-5 w-fit absolute -rigth-3 lg:right-2">
+          <div className="flex gap-l lg:gap-5 w-fit absolute -rigth-3 lg:-right-2">
           <div className="flex flex-col gap-3 lg:gap-8">
-            {['React.js', 'Nexts.js', 'TypeScript'].map((item)=>(
-              <span key={item}
-              className="py-2 lg:py-4 lg:px3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 round-lg text-center bg-[#10132E]"></span>
+            {leftLists.map((item, i)=>(
+              <span key={i}
+              className="py-2 lg:py-4 lg:px3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 round-lg text-center bg-[#10132E]">{item}</span>
             ))}
+            <span className="py-4 px-3 rounded-lg text-center bg-[#10132e] "></span>
+          </div>
+          
+          <div className="flex flex-col gap-3 lg:gap-8">
+            {rightLists.map((item, i)=>(
+              <span key={i}
+              className="py-2 lg:py-4 lg:px3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 round-lg text-center bg-[#10132E]">{item}</span>
+            ))}
+            <span className="py-4 px-3 rounded-lg text-center bg-[#10132e] "></span>
           </div>
           </div>
         )}
+        {id === 6 && (
+          <div className="mt-5 relative">
+              <div className={`absolute -bottom-5 right-0`}>
+                <Lottie options={defaultOptions} height={200} width={200}/>
+              </div>
+          </div>
+        )}
       </div>
+      <MagicButton 
+        title={copied ? "¡Correo copiado!" : "Copiar mi Correo Electronico"}
+        icon={<IoCodeOutline/>}
+        position="left"
+        handleClick={handleCopy}
+        otherClasses="!bg-[#161A31]"/>
     </div>
   );
 };

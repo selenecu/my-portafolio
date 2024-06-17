@@ -52,12 +52,12 @@ const Hero = () => {
            *  change md:text-6xl, add more responsive code
            */}
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Transformar conceptos en experiencias de usuario perfectas."
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Selene, a Next.js Developer based in Peru.
+           ¡Hola! Soy Selene, una Developer basada en Peru.
           </p>
 
           <a href="#about">
