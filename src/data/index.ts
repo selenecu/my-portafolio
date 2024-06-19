@@ -1,8 +1,9 @@
 export const navItems = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
-    { name: "Contact", link: "#contact" },
+    { name: "Inicio", link: "#about" },
+    { name: "Experiencia", link: "#testimonials" },
+    { name: "Competencias", link: "#skills" },
+    { name: "Portafolio", link: "#projects" },
+    { name: "Contacto", link: "#contact" },
   ];
   
   export const gridItems = [
@@ -182,14 +183,14 @@ export const navItems = [
       id: 2,
       title: "Mobile App Dev - JSM Tech",
       desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
+      className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
     {
       id: 3,
       title: "Freelance App Dev Project",
       desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-      className: "md:col-span-2", // change to md:col-span-2
+      className: "md:col-span-2",
       thumbnail: "/exp3.svg",
     },
     {
@@ -214,4 +215,13 @@ export const navItems = [
       id: 3,
       img: "/link.svg",
     },
+    
+    {
+      id: 5,
+      img: "/insta.svg",
+    },
+    {
+      id: 6,
+      img: "/wha.svg",
+    }
   ];

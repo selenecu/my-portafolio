@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36" id="about">
       {/**
        *  UI: Spotlights
        *  Link: https://ui.aceternity.com/components/spotlight
@@ -22,12 +22,6 @@ const Hero = () => {
         />
         <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
       </div>
-
-      {/**
-       *  UI: grid
-       *  change bg color to bg-black-100 and reduce grid color from
-       *  0.2 to 0.03
-       */}
       <div
         className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
        absolute top-0 left-0 flex items-center justify-center"
@@ -42,27 +36,23 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
-          </p>
-
-          {/**
-           *  Link: https://ui.aceternity.com/components/text-generate-effect
-           *
-           *  change md:text-6xl, add more responsive code
-           */}
           <TextGenerateEffect
-            words="Transformar conceptos en experiencias de usuario perfectas."
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            words="¡Hola, soy Selene Culquicondor!"
+            className="text-center text-[50px] md:text-9xl lg:text-10xl pb-5"
           />
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+            Frontend Developer
+          </p>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-           ¡Hola! Soy Selene, una Developer basada en Peru.
+          Soy una persona proactiva, organizada y responsable, con buenas relaciones interpersonales.
+          Siempre tengo la mejor disposición para la realización de mis labores.
+          Buscando mi primera experiencia laboral donde pueda continuar aprendiendo.
           </p>
 
-          <a href="#about">
+          <a href="">
             <MagicButton
-              title="Show my work"
+              title="Descargar CV"
               icon={<FaLocationArrow />}
               position="right"
             />

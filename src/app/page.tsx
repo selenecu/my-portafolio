@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Hero from "../components/Hero";
 import { FloatingNav } from "@/components/ui/FlatingNav";
-import  Grid  from "@/components/Grid";
+import  AnimatedTooltipPreview  from "@/components/AnimatedTooltipPreview";
 import RecentProject from "@/components/RecentProject";
 import { navItems } from "@/data";
 import Clients from "@/components/Clients";
@@ -16,7 +16,7 @@ const Home= () =>{
   <div className="max-w-7xl w-full">
    <FloatingNav navItems={navItems}/>
    <Hero/>
-   <Grid/>
+   <AnimatedTooltipPreview/>
    <RecentProject/>
    <Clients/>
    <Experience/>
