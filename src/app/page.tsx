@@ -3,12 +3,12 @@ import Image from "next/image";
 import Hero from "../components/Hero";
 import { FloatingNav } from "@/components/ui/FlatingNav";
 import  AnimatedTooltipPreview  from "@/components/AnimatedTooltipPreview";
-import RecentProject from "@/components/RecentProject";
 import { navItems } from "@/data";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import Approach from "@/components/Approach";
 import Footer from "@/components/Footer";
+
 
 const Home= () =>{
   return (
@@ -17,7 +17,6 @@ const Home= () =>{
    <FloatingNav navItems={navItems}/>
    <Hero/>
    <AnimatedTooltipPreview/>
-   <RecentProject/>
    <Clients/>
    <Experience/>
    <Approach />

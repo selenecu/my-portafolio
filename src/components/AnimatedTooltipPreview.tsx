@@ -44,6 +44,41 @@ const people = [
     image:
     "/graphQL.png",
   },
+  {
+    id: 7,
+    name: "Laravel",
+    designation: "The Explorer",
+    image:
+    "/laravel.png",
+  },
+  {
+    id: 8,
+    name: "PHP",
+    designation: "The Explorer",
+    image:
+    "/PHP.png",
+  },
+  {
+    id: 9,
+    name: "Python",
+    designation: "The Explorer",
+    image:
+    "/python.png",
+  },
+  {
+    id: 10,
+    name: "PostgreSQL",
+    designation: "The Explorer",
+    image:
+    "/postgressql.png",
+  },
+  {
+    id: 11,
+    name: "Next Js",
+    designation: "The Explorer",
+    image:
+    "/next.png",
+  },
 ];
 
 const  AnimatedTooltipPreview= () =>{
