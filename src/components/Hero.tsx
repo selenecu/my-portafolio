@@ -1,8 +1,11 @@
 import { FaLocationArrow } from "react-icons/fa6";
-
+import { AnimatePresence, motion } from "framer-motion";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
+import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
+import { words } from "@/data";
+import { FlipWords } from "../components/ui/flip-words";
 
 const Hero = () => {
   return (
@@ -35,21 +38,23 @@ const Hero = () => {
       </div>
 
       <div className="flex justify-center relative my-20 z-10">
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+        <div className="max-w-[49vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+
           <TextGenerateEffect
             words="¡Hola, soy Selene Culquicondor!"
             className="text-center text-[50px] md:text-9xl lg:text-10xl pb-5"
           />
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Frontend Developer
-          </p>
+
+          <FlipWords 
+          className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80"
+          words = {words}/>
+
+          <div className="flex justify-center w-80">
+          </div>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Soy una persona proactiva, organizada y responsable, con buenas relaciones interpersonales.
-          Siempre tengo la mejor disposición para la realización de mis labores.
-          Buscando mi primera experiencia laboral donde pueda continuar aprendiendo.
+          Resido en el Perú y soy una desarrolladora front-end apasionada por crear aplicaciones web accesibles que les encanten a los usuarios.
           </p>
-
           <a href="">
             <MagicButton
               title="Descargar CV"

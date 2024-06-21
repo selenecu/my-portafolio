@@ -184,32 +184,32 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Frontend Engineer Intern",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      title: "Practicante de Desarrollo plataformas",
+      desc: "Participé en el desarrollo de plataformas basada en Vue.js, mejorando la interactividad.",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
-    },
+    }, 
     {
       id: 2,
-      title: "Mobile App Dev - JSM Tech",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+      title: "Desarrollo de paginas Web",
+      desc: " Diseñé y desarrollé paginas Web basadas en Wordpress.",
       className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
-    {
-      id: 3,
-      title: "Freelance App Dev Project",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-      className: "md:col-span-2",
-      thumbnail: "/exp3.svg",
-    },
-    {
-      id: 4,
-      title: "Lead Frontend Developer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
-      className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
-    },
+    // {
+    //   id: 3,
+    //   title: "Freelance App Dev Project",
+    //   desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    //   className: "md:col-span-2",
+    //   thumbnail: "/exp3.svg",
+    // },
+    // {
+    //   id: 4,
+    //   title: "Lead Frontend Developer",
+    //   desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    //   className: "md:col-span-2",
+    //   thumbnail: "/exp4.svg",
+    // },
   ];
   
   export const socialMedia = [
@@ -235,3 +235,122 @@ export const navItems = [
       img: "/wha.svg",
     }
   ];
+  export const words = [
+   "Frontend - Developer", "cute", "beautiful", "modern"
+  ];
+  export const r = [
+    {
+      id: 1,
+      name: "React",
+      designation: "Software Engineer",
+      image:
+        "/react.png",
+    },
+   
+  ];
+  
+  export const v = [
+    {
+      id: 2,
+      name: "Vue Js",
+      designation: "Product Manager",
+      image:
+        "/vuejs.png",
+    },
+  ];
+  
+  export const t = [
+  
+    {
+      id: 3,
+      name: "TypeScript",
+      designation: "Data Scientist",
+      image:
+        "/typescript.png",
+    },
+   
+  ];
+  
+  export const n = [
+    {
+      id: 4,
+      name: "Nuxt",
+      designation: "UX Designer",
+      image:
+        "/nuxt.png",
+    },
+  ];
+  
+  export const w = [
+    {
+      id: 5,
+      name: "Worpress",
+      designation: "Soap Developer",
+      image:
+        "/wordpress.png",
+    },
+    
+  ];
+  
+  export const g = [
+   
+    {
+      id: 6,
+      name: "GraphQL",
+      designation: "The Explorer",
+      image:
+      "/graphQL.png",
+    },
+   
+  ];
+  
+  export const ph = [
+    {
+      id: 8,
+      name: "PHP",
+      designation: "The Explorer",
+      image:
+      "/PHP.png",
+    },
+ 
+  ];
+  
+  export const l = [
+    {
+      id: 7,
+      name: "Laravel",
+      designation: "The Explorer",
+      image:
+      "/laravel.png",
+    },
+  ];
+  
+  export const py = [
+    {
+      id: 9,
+      name: "Python",
+      designation: "The Explorer",
+      image:
+      "/python.png",
+    },
+   
+  ];
+  export const po = [
+    {
+      id: 10,
+      name: "PostgreSQL",
+      designation: "The Explorer",
+      image:
+      "/postgressql.png",
+    },
+  ];
+  export const ne = [
+    {
+      id: 11,
+      name: "Next Js",
+      designation: "The Explorer",
+      image:
+      "/next.png",
+    },
+  ];
+  
