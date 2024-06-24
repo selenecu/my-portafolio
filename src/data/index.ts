@@ -242,7 +242,7 @@ export const navItems = [
     {
       id: 1,
       name: "React",
-      designation: "Software Engineer",
+      designation: "1 mes de experiencia",
       image:
         "/react.png",
     },

@@ -19,7 +19,7 @@ const Home= () =>{
    <AnimatedTooltipPreview/>
    <Clients/>
    <Experience/>
-   <Approach />
+   {/* <Approach /> */}
    <Footer/>
   </div>
 </main>

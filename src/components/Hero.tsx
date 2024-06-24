@@ -55,7 +55,7 @@ const Hero = () => {
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
           Resido en el Perú y soy una desarrolladora front-end apasionada por crear aplicaciones web accesibles que les encanten a los usuarios.
           </p>
-          <a href="">
+          <a href="/curriculum.tsx">
             <MagicButton
               title="Descargar CV"
               icon={<FaLocationArrow />}
