@@ -1,13 +1,13 @@
-"use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatedTooltip } from "./ui/AnimatedTooltip";
-import { r,po,ne,py,l,ph,g,w,n,t,v } from "@/data";
+ import { r,po,ne,py,l,ph,g,w,n,t,v } from "@/data";
 import { Button } from "./ui/MovingBorder";
+
 const  AnimatedTooltipPreview= () =>{
   return (
-    <div className="flex relative flex-col items-center justify-center  w-full" id="skills">
-      <div className="absolute -top-20 heading ">
-      <h1 >Competencias</h1>
+    <div className="flex relative flex-col items-center justify-center py-20  w-full" id="skills">
+      <div className="absolute top-1 heading ">
+      <BubbleText/>
     </div>
       
   <div className="flex-col items-center gap-8  sm:grid sm:grid-cols-2 justify-center sm:w-full w-full">   
@@ -116,4 +116,71 @@ const  AnimatedTooltipPreview= () =>{
     
   );
 }
+const BubbleText = () => {
+    useEffect(() => {
+      const spans = document.querySelectorAll(
+        ".hover-text span"
+      ) as NodeListOf<HTMLSpanElement>;
+  
+      spans.forEach((span) => {
+        span.addEventListener("mouseenter", function (this: typeof span) {
+          this.style.fontWeight = "900";
+          this.style.color = "rgb(238, 242, 255)";
+  
+          const leftNeighbor = this.previousElementSibling as HTMLSpanElement;
+          const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
+  
+          if (leftNeighbor) {
+            leftNeighbor.style.fontWeight = "500";
+            leftNeighbor.style.color = "rgb(199, 210, 254)";
+          }
+          if (rightNeighbor) {
+            rightNeighbor.style.fontWeight = "500";
+            rightNeighbor.style.color = "rgb(199, 210, 254)";
+          }
+        });
+  
+        span.addEventListener("mouseleave", function (this: typeof span) {
+          this.style.fontWeight = "100";
+          this.style.color = "rgb(165, 180, 252)";
+  
+          const leftNeighbor = this.previousElementSibling as HTMLSpanElement;
+          const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
+  
+          if (leftNeighbor) {
+            leftNeighbor.style.fontWeight = "100";
+            leftNeighbor.style.color = "rgb(165, 180, 252)";
+          }
+  
+          if (rightNeighbor) {
+            rightNeighbor.style.fontWeight = "100";
+            rightNeighbor.style.color = "rgb(165, 180, 252)";
+          }
+        });
+      });
+    }, []);
+  
+    return (
+      <div className="hover-text text-center text-5xl text-indigo-300 place-content-center bg-black">
+        <Text>Habilidades</Text>
+      </div>
+    );
+  };
+  
+  const Text = ({ children }: { children: string }) => {
+    return (
+      <>
+        {children.split("").map((child, idx) => (
+          <span
+            style={{
+              transition: "0.35s font-weight, 0.35s color",
+            }}
+            key={idx}
+          >
+            {child}
+          </span>
+        ))}
+      </>
+    );
+  };
 export default AnimatedTooltipPreview

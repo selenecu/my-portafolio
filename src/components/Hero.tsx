@@ -1,19 +1,17 @@
 import { FaLocationArrow } from "react-icons/fa6";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
-import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { words } from "@/data";
 import { FlipWords } from "../components/ui/flip-words";
+import { squareData } from "@/data"
 
 const Hero = () => {
   return (
+    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center md:gap-10 gap-4 max-w-6xl mx-auto">
     <div className="pb-20 pt-36 relative" id="about">
-      {/**
-       *  UI: Spotlights
-       *  Link: https://ui.aceternity.com/components/spotlight
-       */}
       <div>
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -26,10 +24,9 @@ const Hero = () => {
         <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
       </div>
       <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
+        className="w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
        absolute top-0 left-0 flex items-center justify-center"
       >
-        {/* Radial gradient for the container to give a faded look */}
         <div
           // chnage the bg to bg-black-100, so it matches the bg color and will blend in
           className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
@@ -55,15 +52,72 @@ const Hero = () => {
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
           Resido en el Perú y soy una desarrolladora front-end apasionada por crear aplicaciones web accesibles que les encanten a los usuarios.
           </p>
-          <a href="/curriculum.tsx">
+          <a 
+          target="_blank"
+          rel="noreferrer"
+          href="./CVSELENE.pdf">
             <MagicButton
-              title="Descargar CV"
+              title="Visualizar CV"
               icon={<FaLocationArrow />}
               position="right"
             />
           </a>
         </div>
       </div>
+    </div>
+    <ShuffleGrid />
+    </section>
+  );
+};
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+const generateSquares = () => {
+  return shuffle(squareData).map((sq) => (
+    <motion.div
+      key={sq.id}
+      layout
+      transition={{ duration: 1.5, type: "spring" }}
+      className="w-full h-full"
+      style={{
+        backgroundImage: `url(${sq.src})`,
+        backgroundSize: "cover",
+      }}
+    ></motion.div>
+  ));
+};
+
+const ShuffleGrid = () => {
+  const timeoutRef = useRef(null);
+  const [squares, setSquares] = useState(generateSquares());
+
+  useEffect(() => {
+    shuffleSquares();
+
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  const shuffleSquares = () => {
+    setSquares(generateSquares());
+
+    timeoutRef.current = setTimeout(shuffleSquares, 3000);
+  };
+
+  return (
+    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+      {squares.map((sq) => sq)}
     </div>
   );
 };
