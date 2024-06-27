@@ -1,5 +1,5 @@
 import { FaLocationArrow } from "react-icons/fa6";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
@@ -69,7 +69,7 @@ const Hero = () => {
     </section>
   );
 };
-const shuffle = (array) => {
+const shuffle = (array: (number | string)[]): (number | string)[] => {
   let currentIndex = array.length,
     randomIndex;
 
@@ -85,14 +85,14 @@ const shuffle = (array) => {
   return array;
 };
 const generateSquares = () => {
-  return shuffle(squareData).map((sq) => (
+  return shuffle(squareData.map(sq => sq.src)).map((src) => (
     <motion.div
-      key={sq.id}
+      key={src}
       layout
       transition={{ duration: 1.5, type: "spring" }}
       className="w-full h-full"
       style={{
-        backgroundImage: `url(${sq.src})`,
+        backgroundImage: `url(${src})`,
         backgroundSize: "cover",
       }}
     ></motion.div>
@@ -100,20 +100,23 @@ const generateSquares = () => {
 };
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef(null);
+  const timeoutRef = useRef<null | NodeJS.Timeout>(null);
   const [squares, setSquares] = useState(generateSquares());
+
+  const shuffleSquares: () => void = useCallback(() => {
+    setSquares(generateSquares());
+    timeoutRef.current = setTimeout(shuffleSquares, 3000);
+  }, [setSquares, timeoutRef]);
 
   useEffect(() => {
     shuffleSquares();
 
-    return () => clearTimeout(timeoutRef.current);
-  }, []);
-
-  const shuffleSquares = () => {
-    setSquares(generateSquares());
-
-    timeoutRef.current = setTimeout(shuffleSquares, 3000);
-  };
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [shuffleSquares]);
 
   return (
     <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">

@@ -2,7 +2,7 @@
 import { cn } from "@/utils/cn";
 import React, { useEffect, useState } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
-
+import Image from "next/image";
 import MagicButton from "../ui/MagicButton";
 
 export const InfiniteMovingCards = ({
@@ -111,13 +111,13 @@ export const InfiniteMovingCards = ({
                   <span className=" text-sm leading-[1.6] text-white-200 font-normal">
                     {item.title}
                   </span>
-                <img 
+                <Image
                  src={item.img}
                  width={400}
                  height={400}
                 alt={item.img}
                 className="lg:w-800 md:w-400 w-200 h-200 items-center justify-center ">
-                </img>
+                </Image>
                 </span>
               <div
                 aria-hidden="true"
