@@ -33,7 +33,7 @@ export const AnimatedTooltip = ({
   );
   const handleMouseMove = (event: any) => {
     const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
+    x.set(event.nativeEvent.offsetX - halfWidth); 
   };
 
   return (
@@ -82,7 +82,7 @@ export const AnimatedTooltip = ({
             width={400}
             src={item.image}
             alt={item.name}
-            className="object-cover flex-auto !m-0 !p-0 object-top rounded-full sm:w-20 sm:h-20 h-10 w-10 border-2 group-hover:scale-105 group-hover:z-40 border-white relative transition duration-500"
+            className="object-cover flex-auto !m-0 !p-0 object-top rounded-full xs:w-20 xs:h-20 h-10 w-10 border-2 group-hover:scale-105 group-hover:z-40 border-white relative transition duration-500"
           />
         </div>
       ))}

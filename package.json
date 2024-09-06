@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.8",
     "@mdi/font": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@react-three/drei": "^9.106.0",
@@ -29,6 +30,7 @@
     "three-globe": "^2.31.0"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.57.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,3 +1,5 @@
+import { link } from "fs";
+
   export const gridItems = [
     {
       id: 1,
@@ -208,6 +210,7 @@
     {
       id: 1,
       img: "/git.svg",
+      link: "https://github.com/selenecu",
     },
     {
       id: 2,
@@ -216,15 +219,18 @@
     {
       id: 3,
       img: "/link.svg",
+      link: "https://www.linkedin.com/in/selene-culquicondor-007206210/",
     },
     
     {
       id: 5,
       img: "/insta.svg",
+      link: "https://www.instagram.com/selene_27cu?igsh=ejNqaHZ0eTR0c2Jp",
     },
     {
       id: 6,
       img: "/wha.svg",
+      link: "https://wa.link/cnuylq",
     }
   ];
   export const words = [

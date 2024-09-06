@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React , { Component } from "react";
 import { companies, testimonials } from "@/data";
 import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 
 const Clients = () => {
   return (
-    <section className="py-20">
+    <section className="py-20" id="projects">
       <h1 className="heading relative">
         Proyectos
         <span className="text-purple"> recientes</span>
@@ -19,7 +19,7 @@ const Clients = () => {
         >
           <InfiniteMovingCards
             items={testimonials}
-            direction="right"
+            direction="left"
             speed="slow"
           />
         </div>

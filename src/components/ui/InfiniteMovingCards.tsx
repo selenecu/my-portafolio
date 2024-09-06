@@ -7,8 +7,8 @@ import MagicButton from "../ui/MagicButton";
 
 export const InfiniteMovingCards = ({
   items,
-  direction = "left",
-  speed = "fast",
+  direction = "right",
+  speed = "normal",
   pauseOnHover = true,
   className,
 }: {
@@ -42,37 +42,37 @@ export const InfiniteMovingCards = ({
         }
       });
 
-      getDirection();
-      getSpeed();
+      // getDirection();
+      // getSpeed();
       setStart(true);
     }
   }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+  // const getDirection = () => {
+  //   if (containerRef.current) {
+  //     if (direction === "left") {
+  //       containerRef.current.style.setProperty(
+  //         "--animation-direction",
+  //         "forwards"
+  //       );
+  //     } else {
+  //       containerRef.current.style.setProperty(
+  //         "--animation-direction",
+  //         "reverse"
+  //       );
+  //     }
+  //   }
+  // };
+  // const getSpeed = () => {
+  //   if (containerRef.current) {
+  //     if (speed === "fast") {
+  //       containerRef.current.style.setProperty("--animation-duration", "20s");
+  //     } else if (speed === "normal") {
+  //       containerRef.current.style.setProperty("--animation-duration", "40s");
+  //     } else {
+  //       containerRef.current.style.setProperty("--animation-duration", "80s");
+  //     }
+  //   }
+  // };
   return (
     <div
       ref={containerRef}
@@ -85,15 +85,13 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          // change gap-16
           " flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
-          pauseOnHover && "hover:[animation-play-state:paused]"
+          pauseOnHover && "hover:[animation-play-state:paused] cursor-pointer"
         )}
       >
         {items.map((item, idx) => (
           <li
-            //   change md:w-[450px] to md:w-[60vw] , px-8 py-6 to p-16, border-slate-700 to border-slate-800
             className="w-[90vw] max-w-full relative rounded-2xl border border-b-0
              flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
             style={{
@@ -125,15 +123,18 @@ export const InfiniteMovingCards = ({
               >
               </div>
                 
-              <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
+              <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal justify-between">
                 {item.quote}
               </span>
-                 <a
+              <div className="flex justify-center"
+              ><a
               href={item.link}
               > <MagicButton
               title="Ver proyecto"
               icon={<FaLocationArrow />}
-              position="right"/> </a>
+              position="left"
+             /> </a></div>
+                 
             </blockquote>
              
             

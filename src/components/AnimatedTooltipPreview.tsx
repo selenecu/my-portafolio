@@ -10,7 +10,7 @@ const  AnimatedTooltipPreview= () =>{
       <BubbleText/>
     </div>
       
-  <div className="flex-col items-center gap-8  sm:grid sm:grid-cols-2 justify-center sm:w-full w-full">   
+  <div className="flex-col items-center gap-8  lg:grid sm:grid-cols-2 justify-center xs:w-full w-full">   
 <div className="flex items-center mt-4 justify-center">
 <AnimatedTooltip items={r} />
     <Button 
