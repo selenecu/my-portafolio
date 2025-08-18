@@ -18,7 +18,7 @@ const AnimatedTooltipPreview = () => {
     sólidos conocimientos en tecnologías modernas y experiencia en creación de interfaces 
     dinámicas y responsivas. También poseo fundamentos en <span className="text-purple font-semibold">Backend</span>, 
     lo que me permite comprender el desarrollo de aplicaciones de manera integral.  
-    Me destaco por mi <span className="text-purple font-semibold">aprendizaje constante</span> 
+    Me destaco por mi <span className="text-purple font-semibold">aprendizaje constante </span> 
     y el reforzamiento continuo de lenguajes y herramientas para ofrecer siempre las mejores soluciones.
   </p>
 
