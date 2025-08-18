@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import React , { Component } from "react";
-import { companies, testimonials } from "@/data";
-import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
+import React from "react";
+import { testimonials } from "@/data"; 
+import { FaLocationArrow } from "react-icons/fa6";
+import MagicButton from "./ui/MagicButton";
 
-const Clients = () => {
+const Projects = () => {
   return (
     <section className="py-20" id="projects">
       <h1 className="heading relative">
@@ -12,43 +13,47 @@ const Clients = () => {
         <span className="text-purple"> recientes</span>
       </h1>
 
-      <div className="flex flex-col items-center max-lg:mt-10 ">
-        <div
-          // remove bg-white dark:bg-black dark:bg-grid-white/[0.05], h-[40rem] to 30rem , md:h-[30rem] are for the responsive design
-          className="h-[70vh] md:h-[50rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden "
-        >
-          <InfiniteMovingCards
-            items={testimonials}
-            direction="left"
-            speed="slow"
-          />
-        </div>
+      <p className="text-center text-gray-400 max-w-2xl mx-auto mt-4">
+        La mayoría de mis proyectos desarrollados en empresas son privados, 
+        pero aquí muestro algunos proyectos personales creados en mi tiempo libre 
+        para reforzar conocimientos y explorar nuevas tecnologías.
+      </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
-          {companies.map((company) => (
-            <React.Fragment key={company.id}>
-              <div className="flex md:max-w-60 max-w-32 gap-2">
-                <Image
-                  src={company.img}
-                  alt={company.name}
-                  width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  height={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-10 w-5"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10 px-6">
+        {testimonials.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-gradient-to-r from-[#04071D] to-[#0C0E23] border border-slate-800 rounded-2xl shadow-lg p-6 flex flex-col justify-between"
+          >
+            <div>
+              <Image
+                src={item.img}
+                alt={item.name}
+                width={400}
+                height={300}
+                className="rounded-lg mb-4 object-cover w-full h-48"
+              />
+              <h2 className="text-xl font-bold text-white mb-1">{item.name}</h2>
+              {item.title && (
+                <p className="text-sm text-gray-400 mb-2">{item.title}</p>
+              )}
+              <p className="text-sm text-gray-300">{item.quote}</p>
+            </div>
+
+            <div className="mt-4 flex justify-center">
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                <MagicButton
+                  title="Ver proyecto"
+                  icon={<FaLocationArrow />}
+                  position="left"
                 />
-                <Image
-                  src={company.nameImg}
-                  alt={company.name}
-                  width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  height={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-24 w-20"
-                />
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default Clients;
+export default Projects;

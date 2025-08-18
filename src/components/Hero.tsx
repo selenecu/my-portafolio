@@ -50,18 +50,21 @@ const Hero = () => {
           </div>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Resido en el Perú y soy una desarrolladora front-end apasionada por crear aplicaciones web accesibles que les encanten a los usuarios.
+          Soy una desarrolladora front-end de Piura - Perú, apasionada por crear aplicaciones web modernas, accesibles y centradas en la experiencia del usuario
           </p>
           <a 
-          target="_blank"
-          rel="noreferrer"
-          href="./CVSELENE.pdf">
-            <MagicButton
-              title="Visualizar CV"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+  href="./CVSELENE.pdf"
+  target="_blank"
+  rel="noreferrer"
+  className="mt-6"
+>
+  <MagicButton
+    title="Descargar CV"
+    icon={<FaLocationArrow />}
+    position="right"
+  />
+</a>
+
         </div>
       </div>
     </div>
@@ -85,7 +88,7 @@ const shuffle = (array: (number | string)[]): (number | string)[] => {
   return array;
 };
 const generateSquares = () => {
-  return shuffle(squareData.map(sq => sq.src)).map((src) => (
+  return shuffle(squareData.map(sq => sq.image)).map((src) => (
     <motion.div
       key={src}
       layout
