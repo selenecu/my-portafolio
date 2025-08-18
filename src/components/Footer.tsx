@@ -25,19 +25,22 @@ const Footer = () => {
     </div>
     <div className='flex flex-col items-center'>
         <h1 className='heading lg:max-w-[45vw]'>
-            Contáctame
+            ¡Envíame un mensaje!
         </h1>
         <p className='text-lg lg:max-w-[45vw] text-center my-5'>
-            Piura - Veintiseis de Octubre, Perú
+            ¿Tienes alguna pregunta o propuesta, o simplemente quieres
+saludar? ¡Adelante!
         </p>
-        <div className="width: 100%">
-      {isLoaded && (
+        {/* <div className="width: 100%">
+      {isLoaded 
+      && (
         <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=avenida%20nacional,%20veintiseis%20de%20octubre,%20piura,peru+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
           <a href="https://www.gps.ie/">gps trackers</a>
         </iframe>
-      )}
+      )
+      }
       
-    </div>
+    </div> */}
         <a href="mailto:seleneculquicondor13@gmail.com">
             <p>seleneculquicondor13@gmail.com</p>
         </a>
@@ -55,7 +58,7 @@ const Footer = () => {
         </div>
     <div className='flex mt-16 md:flex-row flex-col justify-center items-center'>
         <p className='md:flex-base  text-sm md:font-normal font-light'>
-           Copyright © 2024 Selene Culquicondor.
+           Copyright © 2024.Todos los derechos reservados..
         </p>
     </div>
   </footer>

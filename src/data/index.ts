@@ -178,32 +178,46 @@ import { link } from "fs";
   export const workExperience = [
     {
       id: 1,
-      title: "Practicante de Desarrollo plataformas",
+      title: "Desarrolladora de Software",
+      desc: "Formamos un equipo que se dedica a automatizar procesos, lo que nos permite reducir gastos y tiempo a través del desarrollo de software, además de ofrecer soporte en este ámbito.",
+      company:"TGI INGENIERIA I.E.R.L",
+      ruc: "20530214762",
+      link: "https://tgiperu.com/",
+      periodo: "Diciembre 2023 - Actualidad",
+      className: "md:col-span-2",
+      thumbnail: "/exp3.svg",
+    },
+    {
+      id: 2,
+      title: "Practicante de Desarrollo web",
       desc: "Participé en el desarrollo de plataformas basada en Vue.js, mejorando la interactividad.",
+      company:"TGI INGENIERIA I.E.R.L",
+      link: "https://tgiperu.com/",
+      periodo: "Agosto 2023 - Noviembre 2023",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     }, 
     {
-      id: 2,
+      id: 3,
       title: "Desarrollo de paginas Web",
-      desc: " Diseñé y desarrollé paginas Web basadas en Wordpress.",
+      desc: "Responsable de la creacion de una pagina web a base de wordpress.",
+      company:"SISCOMPAUD E.I.R.L",
+      ruc: "20530142834",
+      periodo: "Marzo 2023 - Junio 2023",
       className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
-    // {
-    //   id: 3,
-    //   title: "Freelance App Dev Project",
-    //   desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    //   className: "md:col-span-2",
-    //   thumbnail: "/exp3.svg",
-    // },
-    // {
-    //   id: 4,
-    //   title: "Lead Frontend Developer",
-    //   desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    //   className: "md:col-span-2",
-    //   thumbnail: "/exp4.svg",
-    // },
+    {
+      id: 4,
+      title: "Practicante de Desarrollo web",
+      desc: "Proporcioné soporte y desarrollo de paginas web creadas en wordpress.",
+      company:"GRUPO MNG S.A.C",
+      ruc: "20601564182",
+      link: "https://grupomng.com/",
+      periodo: "Noviembre 2022 - Marzo 2023",
+      className: "md:col-span-2",
+      thumbnail: "/exp4.svg",
+    },
   ];
   
   export const socialMedia = [
@@ -236,121 +250,75 @@ import { link } from "fs";
   export const words = [
    "Frontend - Developer", "cute", "beautiful", "modern"
   ];
-  export const r = [
-    {
-      id: 1,
-      name: "React",
-      designation: "1 mes de experiencia",
-      image:
-        "/react.png",
-    },
-   
-  ];
-  
-  export const v = [
-    {
-      id: 2,
-      name: "Vue Js",
-      designation: "Product Manager",
-      image:
-        "/vuejs.png",
-    },
-  ];
-  
-  export const t = [
-  
-    {
-      id: 3,
-      name: "TypeScript",
-      designation: "Data Scientist",
-      image:
-        "/typescript.png",
-    },
-   
-  ];
-  
-  export const n = [
-    {
-      id: 4,
-      name: "Nuxt",
-      designation: "UX Designer",
-      image:
-        "/nuxt.png",
-    },
-  ];
-  
-  export const w = [
-    {
-      id: 5,
-      name: "Worpress",
-      designation: "Soap Developer",
-      image:
-        "/wordpress.png",
-    },
-    
-  ];
-  
-  export const g = [
-   
-    {
-      id: 6,
-      name: "GraphQL",
-      designation: "The Explorer",
-      image:
-      "/graphQL.png",
-    },
-   
-  ];
-  
-  export const ph = [
-    {
-      id: 8,
-      name: "PHP",
-      designation: "The Explorer",
-      image:
-      "/PHP.png",
-    },
- 
-  ];
-  
-  export const l = [
-    {
-      id: 7,
-      name: "Laravel",
-      designation: "The Explorer",
-      image:
-      "/laravel.png",
-    },
-  ];
-  
-  export const py = [
-    {
-      id: 9,
-      name: "Python",
-      designation: "The Explorer",
-      image:
-      "/python.png",
-    },
-   
-  ];
-  export const po = [
-    {
-      id: 10,
-      name: "PostgreSQL",
-      designation: "The Explorer",
-      image:
-      "/postgressql.png",
-    },
-  ];
-  export const ne = [
-    {
-      id: 11,
-      name: "Next Js",
-      designation: "The Explorer",
-      image:
-      "/next.png",
-    },
-  ];
+export const lenguajes = [
+  {
+    id: 1,
+    name: "React",
+    designation: "Construyo interfaces modernas",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  },
+  {
+    id: 2,
+    name: "Vue Js",
+    designation: "Frontend dinámico y escalable",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+  },
+  {
+    id: 3,
+    name: "TypeScript",
+    designation: "Código tipado y mantenible",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  },
+  {
+    id: 4,
+    name: "Nuxt",
+    designation: "Aplicaciones rápidas y SEO friendly",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxt/nuxt-original.svg",
+  },
+  {
+    id: 5,
+    name: "WordPress",
+    designation: "Sitios web personalizados",
+    src: "/wordpress.png",
+  },
+  {
+    id: 6,
+    name: "GraphQL",
+    designation: "Consultas de datos eficientes",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+  },
+  {
+    id: 7,
+    name: "Laravel",
+    designation: "Backend robusto y escalable",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+  },
+  {
+    id: 8,
+    name: "PHP",
+    designation: "Desarrollo web backend",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+  },
+  {
+    id: 9,
+    name: "Python",
+    designation: "Automatización y análisis de datos",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  },
+  {
+    id: 10,
+    name: "PostgreSQL",
+    designation: "Gestión de bases de datos",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+  },
+  {
+    id: 11,
+    name: "Next Js",
+    designation: "Fullstack con React y SSR",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  },
+];
+
 
   export const squareData = [
     {
