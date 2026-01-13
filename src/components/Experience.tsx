@@ -9,15 +9,9 @@ import {
 const Experience = () => {
   return (
     <div className="py-20 w-full" id="testimonials">
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 6 }}
-        transition={{ duration: 1 }}
-        
-        className="text-[40px] font-bold capitalize text-center"
-      >
+      <h1 className="heading">
         Mi <span className="text-purple">experiencia laboral</span>
-      </motion.p>
+      </h1>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (
@@ -50,6 +44,27 @@ const Experience = () => {
                 <h1 className="text-start text-xl md:text-2xl font-bold">
                   {card.title}
                 </h1>
+                <p className="text-start text-white-100 mt-1 font-semibold">
+                  {card.company}
+                  {card.ruc && (
+                    <span className="text-white-100 ms-2">RUC: {card.ruc}</span>
+                  )}
+                </p>
+                <p className="text-start text-white-100 mt-1 font-semibold">
+                  {card.periodo}
+                </p>
+                {card.link && (
+                  <p className="text-start text-white-100 mt-1 font-semibold">
+                    <a
+                      href={card.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple hover:underline"
+                    >
+                      Visitar sitio web
+                    </a>
+                  </p>
+                )}
                 <p className="text-start text-white-100 mt-3 font-semibold">
                   {card.desc}
                 </p>

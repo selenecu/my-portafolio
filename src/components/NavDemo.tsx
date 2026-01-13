@@ -15,14 +15,14 @@ export function FloatingNavDemo() {
       icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Habilidades",
+      name: "Conocimientos",
       link: "#skills",
       icon: (
         <IconBarbellFilled className="h-4 w-4 text-neutral-500 dark:text-white" />
       ),
     },
     {
-      name: "Portafolio",
+      name: "Proyectos",
       link: "#projects",
       icon: (
         <IconBook className="h-4 w-4 text-neutral-500 dark:text-white" />

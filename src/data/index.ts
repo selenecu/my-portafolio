@@ -101,21 +101,22 @@ import { link } from "fs";
   
   export const testimonials = [
     {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Consulta de Datos",
-      title: "Director of AlphaStream Technologies",
-      img:  "/consulta.png",
-      link: "https://vite-pi-five-38.vercel.app",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Pokedex",
-      title: "Director of AlphaStream Technologies",
-      img: "/pokedex.png",
-      link: "https://pokedex-react-iota-six.vercel.app",
-    },
+  quote:
+    "Aplicación web que integra una API externa para obtener información de identidad a partir del número de documento. Desarrollé validaciones, manejo de errores y una interfaz responsiva para una mejor experiencia de usuario.",
+  name: "Consulta de Datos",
+  title: "Proyecto Web",
+  img: "/consulta.png",
+  link: "https://vite-pi-five-38.vercel.app",
+},
+{
+  quote:
+    "Aplicación web desarrollada con React y TailwindCSS, que consume la API pública de Pokémon para mostrar información dinámica de personajes. Implementé búsqueda, paginación y visualización detallada de cada Pokémon.",
+  name: "Pokédex",
+  title: "Proyecto Web",
+  img: "/pokedex.png",
+  link: "https://pokedex-react-iota-six.vercel.app",
+},
+
     // {
     //   quote:
     //     "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
@@ -180,31 +181,45 @@ import { link } from "fs";
     {
       id: 1,
       title: "Desarrolladora de Software",
-      desc: "Formamé parte de un equipo que se dedica a automatizar procesos, lo que nos permite reducir gastos y tiempo a través del desarrollo de software, además de ofrecer soporte en este ámbito",
+      desc: "Formamos un equipo que se dedica a automatizar procesos, lo que nos permite reducir gastos y tiempo a través del desarrollo de software, además de ofrecer soporte en este ámbito.",
+      company:"TGI INGENIERIA I.E.R.L",
+      ruc: "20530214762",
+      link: "https://tgiperu.com/",
+      periodo: "Diciembre 2023 - Actualidad",
+      className: "md:col-span-2",
+      thumbnail: "/exp3.svg",
+    },
+    {
+      id: 2,
+      title: "Practicante de Desarrollo web",
+      desc: "Participé en el desarrollo de plataformas basada en Vue.js, mejorando la interactividad.",
+      company:"TGI INGENIERIA I.E.R.L",
+      link: "https://tgiperu.com/",
+      periodo: "Agosto 2023 - Noviembre 2023",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     }, 
     {
-      id: 2,
-      title: "Practicante de Desarrollo web",
-      desc: "Responsable de diseñar, desarrollar y evaluar paginas Web basadas en Wordpress.",
+      id: 3,
+      title: "Desarrollo de paginas Web",
+      desc: "Responsable de la creacion de una pagina web a base de wordpress.",
+      company:"SISCOMPAUD E.I.R.L",
+      ruc: "20530142834",
+      periodo: "Marzo 2023 - Junio 2023",
       className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
     {
-      id: 3,
+      id: 4,
       title: "Practicante de Desarrollo web",
-      desc: "Proporcioné soporte y apoyo en la creación de paginas web creadas en wordpress. Ademas de dar matenmiento y actualización de paginas web.",
+      desc: "Proporcioné soporte y desarrollo de paginas web creadas en wordpress.",
+      company:"GRUPO MNG S.A.C",
+      ruc: "20601564182",
+      link: "https://grupomng.com/",
+      periodo: "Noviembre 2022 - Marzo 2023",
       className: "md:col-span-2",
-      thumbnail: "/exp3.svg",
-    }
-    // {
-    //   id: 4,
-    //   title: "Lead Frontend Developer",
-    //   desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    //   className: "md:col-span-2",
-    //   thumbnail: "/exp4.svg",
-    // },
+      thumbnail: "/exp4.svg",
+    },
   ];
   
   export const socialMedia = [
@@ -213,10 +228,10 @@ import { link } from "fs";
       img: "/git.svg",
       link: "https://github.com/selenecu",
     },
-    {
-      id: 2,
-      img: "/twit.svg",
-    },
+    // {
+    //   id: 2,
+    //   img: "/twit.svg",
+    // },
     {
       id: 3,
       img: "/link.svg",
@@ -234,172 +249,165 @@ import { link } from "fs";
       link: "https://wa.link/cnuylq",
     }
   ];
-  export const words = [
-   "Frontend - Developer", "cute", "beautiful", "modern"
-  ];
-  export const initialItems = [
-    {
-      id: 1,
-      name: "React",
-      designation: "1 mes de experiencia",
-      image:
-        "/react.png",
-    },
-    {
-      id: 2,
-      name: "Vue Js",
-      designation: "Product Manager",
-      image:
-        "/vuejs.png",
-    },
-    {
-      id: 3,
-      name: "TypeScript",
-      designation: "Data Scientist",
-      image:
-        "/typescript.png",
-    },
-    {
-      id: 4,
-      name: "Nuxt",
-      designation: "UX Designer",
-      image:
-        "/nuxt.png",
-    }, 
-    {
-      id: 5,
-      name: "Worpress",
-      designation: "Soap Developer",
-      image:
-        "/wordpress.png",
-    },
-    
-  ];
-  export const g = [
-   
-    {
-      id: 6,
-      name: "GraphQL",
-      designation: "The Explorer",
-      image:
-      "/graphQL.png",
-    },
-   
-  ];
-  
-  export const ph = [
-    {
-      id: 8,
-      name: "PHP",
-      designation: "The Explorer",
-      image:
-      "/PHP.png",
-    },
- 
-  ];
-  
-  export const l = [
-    {
-      id: 7,
-      name: "Laravel",
-      designation: "The Explorer",
-      image:
-      "/laravel.png",
-    },
-  ];
-  
-  export const py = [
-    {
-      id: 9,
-      name: "Python",
-      designation: "The Explorer",
-      image:
-      "/python.png",
-    },
-   
-  ];
-  export const po = [
-    {
-      id: 10,
-      name: "PostgreSQL",
-      designation: "The Explorer",
-      image:
-      "/postgressql.png",
-    },
-  ];
-  export const ne = [
-    {
-      id: 11,
-      name: "Next Js",
-      designation: "The Explorer",
-      image:
-      "/next.png",
-    },
-  ];
+ export const words = [
+  "Frontend-Developer",
+  "Software-Developer",
+  "UI/UX",
+  "Responsive-Design",
+  "Web-Accessibility"
+];
+
+export const lenguajes = [
+  {
+    id: 1,
+    name: "React",
+    designation: "Construyo interfaces modernas",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  },
+  {
+    id: 2,
+    name: "Vue Js",
+    designation: "Frontend dinámico y escalable",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+  },
+  {
+    id: 3,
+    name: "TypeScript",
+    designation: "Código tipado y mantenible",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  },
+  {
+    id: 4,
+    name: "Nuxt",
+    designation: "Aplicaciones rápidas y SEO friendly",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxt/nuxt-original.svg",
+  },
+  {
+    id: 5,
+    name: "WordPress",
+    designation: "Sitios web personalizados",
+    src: "/wordpress.png",
+  },
+  {
+    id: 6,
+    name: "GraphQL",
+    designation: "Consultas de datos eficientes",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+  },
+  {
+    id: 7,
+    name: "Laravel",
+    designation: "Backend robusto y escalable",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+  },
+  {
+    id: 8,
+    name: "PHP",
+    designation: "Desarrollo web backend",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+  },
+  {
+    id: 9,
+    name: "Python",
+    designation: "Automatización y análisis de datos",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  },
+  {
+    id: 10,
+    name: "PostgreSQL",
+    designation: "Gestión de bases de datos",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+  },
+  {
+    id: 11,
+    name: "Next Js",
+    designation: "Fullstack con React y SSR",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    id: 12,
+    name: "Tailwind CSS",
+    designation: "Diseño moderno y responsivo",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
+    id: 13,
+    name: "JavaScript",
+    designation: "Lenguaje de programación versátil",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+  },
+  {
+    id: 14,
+    name: "Git",
+    designation: "Control de versiones",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+  }
+];
+
 
   export const squareData = [
     {
       id: 1,
-      src: "/s1.jpeg"
+      image: "/utp.jpg",
     },
     {
       id: 2,
-      src: "/s2.jpeg"
+      image: "/arbol.jpg",
     },
     {
       id: 3,
-      src: "/s3.jpeg"
+      image: "/cita.jpg",
     },
     {
       id: 4,
-      src: "/s4.jpeg"
+      image: "/laboratorio.jpg",
     },
     {
       id: 5,
-      src: "/s5.jpeg",
+      image: "/1.jpg",
     },
     {
       id: 6,
-      src: "/s6.jpeg",
+      image: "/2.jpg",
     },
     {
       id: 7,
-      src: "/s7.jpeg",
+      image: "/3.jpg",
     },
     {
       id: 8,
-      src: "/s8.jpeg",
+      image: "/4.jpg",
     },
     {
       id: 9,
-      src: "/s9.jpeg",
+      image: "/5.jpg",
     },
     {
       id: 10,
-      src: "/s10.jpeg",
+      image: "/6.jpg",
     },
     {
       id: 11,
-      src: "https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
+      image: "/7.jpg",
     },
     {
       id: 12,
-      src: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=882&q=80",
+      image: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=882&q=80",
     },
     {
       id: 13,
-      src: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      image: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     },
     {
       id: 14,
-      src: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+      image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
     },
     {
       id: 15,
-      src: "https://images.unsplash.com/photo-1606244864456-8bee63fce472?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80",
+      image: "https://images.unsplash.com/photo-1606244864456-8bee63fce472?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80",
     },
     {
       id: 16,
-      src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
     },
   ];
