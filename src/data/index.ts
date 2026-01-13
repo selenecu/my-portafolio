@@ -116,15 +116,14 @@ import { link } from "fs";
   img: "/pokedex.png",
   link: "https://pokedex-react-iota-six.vercel.app",
 },
-
-    // {
-    //   quote:
-    //     "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    //   name: "Michael Johnson",
-    //   title: "Director of AlphaStream Technologies",
-    //   img: "/t3.svg",
-    //   link: "https://github.com/adrianhajdin/iphone",
-    // },
+    {
+      quote:
+        "Aplicación web para realizar sorteos de Amigo Secreto de manera rápida, segura y divertida.El organizador ingresa a los participantes, ejecuta la ruleta y se genera un link único con los resultados encriptados en la URL.Cada participante solo puede ver su propio resultado, garantizando privacidad total.",
+      name: "Ruleta Aleatoria — Amigo Secreto",
+      title: "Proyecto Web",
+      img: "/ruleta.png",
+      link: "https://ruleta-aleatoria-nine.vercel.app",
+    },
     // {
     //   quote:
     //     "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
@@ -175,7 +174,7 @@ import { link } from "fs";
       nameImg: "/dockerName.svg",
     },
   ];
-  //  export const initialItems = ["HTML", "CSS", "SQL", "Python", "JavaScript", "GraphQL"];
+ export const initialItems = ["HTML", "CSS", "SQL", "Python", "JavaScript", "GraphQL"];
    export const frameWork = ["Next.js", "Quasar", "Vue.js", "React.js"];
   export const workExperience = [
     {
@@ -257,93 +256,96 @@ import { link } from "fs";
   "Web-Accessibility"
 ];
 
-export const lenguajes = [
-  {
-    id: 1,
-    name: "React",
-    designation: "Construyo interfaces modernas",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-  },
-  {
-    id: 2,
-    name: "Vue Js",
-    designation: "Frontend dinámico y escalable",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
-  },
-  {
-    id: 3,
-    name: "TypeScript",
-    designation: "Código tipado y mantenible",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-  },
-  {
-    id: 4,
-    name: "Nuxt",
-    designation: "Aplicaciones rápidas y SEO friendly",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxt/nuxt-original.svg",
-  },
-  {
-    id: 5,
-    name: "WordPress",
-    designation: "Sitios web personalizados",
-    src: "/wordpress.png",
-  },
-  {
-    id: 6,
-    name: "GraphQL",
-    designation: "Consultas de datos eficientes",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
-  },
-  {
-    id: 7,
-    name: "Laravel",
-    designation: "Backend robusto y escalable",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
-  },
-  {
-    id: 8,
-    name: "PHP",
-    designation: "Desarrollo web backend",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-  },
-  {
-    id: 9,
-    name: "Python",
-    designation: "Automatización y análisis de datos",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-  },
-  {
-    id: 10,
-    name: "PostgreSQL",
-    designation: "Gestión de bases de datos",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
-  },
-  {
-    id: 11,
-    name: "Next Js",
-    designation: "Fullstack con React y SSR",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-  },
-  {
-    id: 12,
-    name: "Tailwind CSS",
-    designation: "Diseño moderno y responsivo",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-  },
-  {
-    id: 13,
-    name: "JavaScript",
-    designation: "Lenguaje de programación versátil",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-  },
-  {
-    id: 14,
-    name: "Git",
-    designation: "Control de versiones",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
-  }
-];
-
+export const skills = {
+  lenguajes: [
+    {
+      id: 13,
+      name: "JavaScript",
+      designation: "Lenguaje de programación versátil",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    },
+    {
+      id: 3,
+      name: "TypeScript",
+      designation: "Código tipado y mantenible",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+    },
+    {
+      id: 8,
+      name: "PHP",
+      designation: "Desarrollo web backend",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    },
+    {
+      id: 9,
+      name: "Python",
+      designation: "Automatización y análisis de datos",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    },
+    {
+      id: 6,
+      name: "GraphQL",
+      designation: "Consultas de datos eficientes",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+    },
+  ],
+  frameworks: [
+    {
+      id: 1,
+      name: "React",
+      designation: "Construyo interfaces modernas",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    },
+    {
+      id: 11,
+      name: "Next Js",
+      designation: "Fullstack con React y SSR",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      id: 2,
+      name: "Vue Js",
+      designation: "Frontend dinámico y escalable",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+    },
+    {
+      id: 4,
+      name: "Nuxt",
+      designation: "Aplicaciones rápidas y SEO friendly",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxt/nuxt-original.svg",
+    },
+    {
+      id: 12,
+      name: "Tailwind CSS",
+      designation: "Diseño moderno y responsivo",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    },
+    {
+      id: 7,
+      name: "Laravel",
+      designation: "Backend robusto y escalable",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+    },
+    {
+      id: 5,
+      name: "WordPress",
+      designation: "Sitios web personalizados",
+      src: "/wordpress.png",
+    },
+    {
+      id: 10,
+      name: "PostgreSQL",
+      designation: "Gestión de bases de datos",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+    },
+    {
+      id: 14,
+      name: "Git",
+      designation: "Control de versiones",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    },
+  ],
+};
 
   export const squareData = [
     {
