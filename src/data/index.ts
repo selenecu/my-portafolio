@@ -174,29 +174,30 @@ import { link } from "fs";
       nameImg: "/dockerName.svg",
     },
   ];
-  
+  //  export const initialItems = ["HTML", "CSS", "SQL", "Python", "JavaScript", "GraphQL"];
+   export const frameWork = ["Next.js", "Quasar", "Vue.js", "React.js"];
   export const workExperience = [
     {
       id: 1,
-      title: "Practicante de Desarrollo plataformas",
-      desc: "Participé en el desarrollo de plataformas basada en Vue.js, mejorando la interactividad.",
+      title: "Desarrolladora de Software",
+      desc: "Formamé parte de un equipo que se dedica a automatizar procesos, lo que nos permite reducir gastos y tiempo a través del desarrollo de software, además de ofrecer soporte en este ámbito",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     }, 
     {
       id: 2,
-      title: "Desarrollo de paginas Web",
-      desc: " Diseñé y desarrollé paginas Web basadas en Wordpress.",
+      title: "Practicante de Desarrollo web",
+      desc: "Responsable de diseñar, desarrollar y evaluar paginas Web basadas en Wordpress.",
       className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
-    // {
-    //   id: 3,
-    //   title: "Freelance App Dev Project",
-    //   desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    //   className: "md:col-span-2",
-    //   thumbnail: "/exp3.svg",
-    // },
+    {
+      id: 3,
+      title: "Practicante de Desarrollo web",
+      desc: "Proporcioné soporte y apoyo en la creación de paginas web creadas en wordpress. Ademas de dar matenmiento y actualización de paginas web.",
+      className: "md:col-span-2",
+      thumbnail: "/exp3.svg",
+    }
     // {
     //   id: 4,
     //   title: "Lead Frontend Developer",
@@ -236,7 +237,7 @@ import { link } from "fs";
   export const words = [
    "Frontend - Developer", "cute", "beautiful", "modern"
   ];
-  export const r = [
+  export const initialItems = [
     {
       id: 1,
       name: "React",
@@ -244,10 +245,6 @@ import { link } from "fs";
       image:
         "/react.png",
     },
-   
-  ];
-  
-  export const v = [
     {
       id: 2,
       name: "Vue Js",
@@ -255,10 +252,6 @@ import { link } from "fs";
       image:
         "/vuejs.png",
     },
-  ];
-  
-  export const t = [
-  
     {
       id: 3,
       name: "TypeScript",
@@ -266,20 +259,13 @@ import { link } from "fs";
       image:
         "/typescript.png",
     },
-   
-  ];
-  
-  export const n = [
     {
       id: 4,
       name: "Nuxt",
       designation: "UX Designer",
       image:
         "/nuxt.png",
-    },
-  ];
-  
-  export const w = [
+    }, 
     {
       id: 5,
       name: "Worpress",
@@ -289,7 +275,6 @@ import { link } from "fs";
     },
     
   ];
-  
   export const g = [
    
     {
@@ -355,43 +340,43 @@ import { link } from "fs";
   export const squareData = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      src: "/s1.jpeg"
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1510925758641-869d353cecc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      src: "/s2.jpeg"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1629901925121-8a141c2a42f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      src: "/s3.jpeg"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1580238053495-b9720401fd45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      src: "/s4.jpeg"
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80",
+      src: "/s5.jpeg",
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      src: "/s6.jpeg",
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      src: "/s7.jpeg",
     },
     {
       id: 8,
-      src: "https://plus.unsplash.com/premium_photo-1671436824833-91c0741e89c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      src: "/s8.jpeg",
     },
     {
       id: 9,
-      src: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      src: "/s9.jpeg",
     },
     {
       id: 10,
-      src: "https://images.unsplash.com/photo-1610768764270-790fbec18178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      src: "/s10.jpeg",
     },
     {
       id: 11,

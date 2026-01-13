@@ -4,6 +4,7 @@ import  {FloatingNavDemo}  from "@/components/NavDemo";
 import  AnimatedTooltipPreview  from "@/components/AnimatedTooltipPreview";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
+import Habilities from "@/components/Habilities";
 import Approach from "@/components/Approach";
 import Footer from "@/components/Footer";
 
@@ -15,7 +16,8 @@ const Home= () =>{
    <FloatingNavDemo />
    <Hero/>
    <Experience/>
-   <AnimatedTooltipPreview/>
+   <Habilities/>
+   {/* <AnimatedTooltipPreview/> */}
    <Clients/>
    {/* <Approach /> */}
    <Footer/>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AnimatedTooltip } from "./ui/AnimatedTooltip";
- import { r,po,ne,py,l,ph,g,w,n,t,v } from "@/data";
+ import { po,ne,py,l,ph,g } from "@/data";
 import { Button } from "./ui/MovingBorder";
 
 const  AnimatedTooltipPreview= () =>{

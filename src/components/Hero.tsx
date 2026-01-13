@@ -55,7 +55,7 @@ const Hero = () => {
           <a 
           target="_blank"
           rel="noreferrer"
-          href="./CVSELENE.pdf">
+          href="./Cv Selene culquicondor.pdf">
             <MagicButton
               title="Visualizar CV"
               icon={<FaLocationArrow />}

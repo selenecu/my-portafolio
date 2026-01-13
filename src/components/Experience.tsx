@@ -2,13 +2,22 @@ import React from "react";
 import Image from "next/image";
 import { workExperience } from "@/data";
 import { Button } from "./ui/MovingBorder";
+import {
+  motion
+} from "framer-motion";
 
 const Experience = () => {
   return (
     <div className="py-20 w-full" id="testimonials">
-      <h1 className="heading">
-        Mi <span className="text-purple">experincia laboral</span>
-      </h1>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 6 }}
+        transition={{ duration: 1 }}
+        
+        className="text-[40px] font-bold capitalize text-center"
+      >
+        Mi <span className="text-purple">experiencia laboral</span>
+      </motion.p>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (
