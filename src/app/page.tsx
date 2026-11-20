@@ -10,7 +10,8 @@ import Footer from "@/components/Footer";
 
 const Home= () =>{
   return (
-<main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+<main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5 pb-20 md:pb-0">
+  {/* Bottom padding on mobile keeps the footer clear of the bottom nav bar. */}
   <div className="max-w-7xl w-full">
    <FloatingNavDemo />
    <Hero/>

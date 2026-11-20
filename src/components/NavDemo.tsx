@@ -1,50 +1,39 @@
 "use client";
 import React from "react";
-import  {FloatingNav}  from "@/components/ui/FlatingNav";
-import { IconAddressBook, IconBarbellFilled, IconBook, IconBriefcase, IconHome, IconSchool } from "@tabler/icons-react";
-export function FloatingNavDemo() {
-  const navItems = [
-    {
-      name: "Inicio",
-      link: "#about",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Experiencia",
-      link: "#experience",
-      icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Educación",
-      link: "#education",
-      icon: <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Conocimientos",
-      link: "#skills",
-      icon: (
-        <IconBarbellFilled className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-    {
-      name: "Proyectos",
-      link: "#projects",
-      icon: (
-        <IconBook className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-    {
-      name: "Contacto",
-      link: "#contact",
-      icon: (
-        <IconAddressBook className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-  ];
-  return (
-    <div className="relative w-full ">
-      <FloatingNav navItems={navItems} />
-    </div>
-  );
-}
+import { FloatingNav, type NavItem } from "@/components/ui/FlatingNav";
+import {
+  IconAddressBook,
+  IconBarbellFilled,
+  IconBook,
+  IconBriefcase,
+  IconHome,
+  IconSchool,
+} from "@tabler/icons-react";
 
+const ICON_CLASS = "h-5 w-5";
+
+// Module-level so the scrollspy receives a stable list of ids.
+const navItems: NavItem[] = [
+  { name: "Inicio", id: "about", icon: <IconHome className={ICON_CLASS} /> },
+  {
+    name: "Experiencia",
+    id: "experience",
+    icon: <IconBriefcase className={ICON_CLASS} />,
+  },
+  { name: "Educación", id: "education", icon: <IconSchool className={ICON_CLASS} /> },
+  {
+    name: "Habilidades",
+    id: "skills",
+    icon: <IconBarbellFilled className={ICON_CLASS} />,
+  },
+  { name: "Proyectos", id: "projects", icon: <IconBook className={ICON_CLASS} /> },
+  {
+    name: "Contacto",
+    id: "contact",
+    icon: <IconAddressBook className={ICON_CLASS} />,
+  },
+];
+
+export function FloatingNavDemo() {
+  return <FloatingNav navItems={navItems} />;
+}

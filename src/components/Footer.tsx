@@ -26,7 +26,7 @@ const Footer = () => {
 
       {/* Título + mensaje */}
       <div className="flex flex-col items-center text-center">
-        <h1 className="heading lg:max-w-[45vw]">¡Envíame un mensaje!</h1>
+        <h2 className="heading lg:max-w-[45vw]">¡Envíame un mensaje!</h2>
         <p className="text-lg lg:max-w-[45vw] my-5 text-gray-300">
           ¿Tienes alguna pregunta o propuesta, o simplemente quieres saludar?  
           ¡Adelante!

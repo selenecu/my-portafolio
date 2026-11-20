@@ -68,13 +68,35 @@
 
 @layer base {
   * {
-    @apply border-border !scroll-smooth;
+    @apply border-border;
+  }
+  html {
+    /* Anchored sections land clear of the floating nav (top pill on md+). */
+    scroll-padding-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 6rem;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
   body {
     @apply bg-background text-foreground;
   }
-  button {
-    @apply active:outline-none;
+
+  /* One focus ring for every interactive element: lilac, offset over the navy. */
+  :focus-visible {
+    outline: 2px solid #cbacf9;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: rgba(203, 172, 249, 0.35);
+    color: #fff;
   }
 }
 

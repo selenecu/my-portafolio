@@ -41,9 +41,9 @@ const Hero = () => {
             ¡Hola, soy Selene Culquicondor!
           </h1>
 
-          <h2 className="mt-5 text-xl md:text-2xl font-semibold text-purple">
+          <p className="mt-5 text-xl md:text-2xl font-semibold text-purple">
             Desarrolladora Web y Móvil
-          </h2>
+          </p>
 
           <FlipWords
             className="mt-2 text-base md:text-lg font-medium text-blue-100"
@@ -54,18 +54,15 @@ const Hero = () => {
             {profile.bio}
           </p>
 
-          <a
+          <MagicButton
             href="/cv-selene-culquicondor.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 w-full md:w-auto"
-          >
-            <MagicButton
-              title="Descargar CV"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+            external
+            title="Descargar CV"
+            ariaLabel="Descargar CV (PDF, se abre en una pestaña nueva)"
+            icon={<FaLocationArrow />}
+            position="right"
+            className="mt-6"
+          />
         </div>
       </div>
       <ShuffleGrid />

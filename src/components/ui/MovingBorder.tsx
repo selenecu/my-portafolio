@@ -14,7 +14,8 @@ import { cn } from "@/utils/cn";
 export function Button({
   borderRadius = "1.75rem",
   children,
-  as: Component = "button",
+  // Defaults to a neutral container: content cards must not be buttons.
+  as: Component = "div",
   containerClassName,
   borderClassName,
   duration,
