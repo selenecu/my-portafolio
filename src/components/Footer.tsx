@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { socialMedia } from '@/data'
+import { contactEmail, socialMedia } from '@/data'
 import Image from 'next/image'
-import { MdEmail, MdPhone } from 'react-icons/md'
+import { MdEmail } from 'react-icons/md'
 
 const Footer = () => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -35,15 +35,10 @@ const Footer = () => {
         {/* Contacto centrado con íconos */}
         <div className="space-y-3 mt-4">
           <a
-  href="mailto:seleneculquicondor13@gmail.com?subject=Consulta%20desde%20tu%20portafolio"
-  className="flex items-center justify-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
->
-  <MdEmail size={20} /> seleneculquicondor13@gmail.com
-</a>
-
-          <a href="tel:+51942305061"
-  className="flex items-center justify-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
-            <MdPhone size={18} /> +51 942 305 061
+            href={`mailto:${contactEmail}?subject=Consulta%20desde%20tu%20portafolio`}
+            className="flex items-center justify-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+          >
+            <MdEmail size={20} /> {contactEmail}
           </a>
         </div>
       </div>
@@ -56,14 +51,14 @@ const Footer = () => {
             href={profile.link}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Ir al perfil de ${profile.id}`}
+            aria-label={`Ir al perfil de ${profile.name}`}
             className="w-10 h-10 flex justify-center items-center rounded-lg border border-gray-700 
                        backdrop-blur-md bg-black/40 text-gray-400 transition-transform 
                        hover:scale-110 hover:border-purple-400 hover:text-purple-300"
           >
             <Image
               src={profile.img}
-              alt={`Icono de ${profile.id}`}
+              alt={profile.name}
               width={20}
               height={20}
             />
@@ -74,7 +69,7 @@ const Footer = () => {
       {/* Derechos reservados */}
       <div className="flex mt-16 justify-center items-center">
         <p className="text-sm text-gray-500">
-          © 2024 Selene Culquicondor. Todos los derechos reservados.
+          © {new Date().getFullYear()} Selene Culquicondor. Todos los derechos reservados.
         </p>
       </div>
     </footer>

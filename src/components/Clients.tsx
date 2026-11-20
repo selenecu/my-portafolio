@@ -56,12 +56,31 @@ const Projects = () => {
                 
                 <div>
                   <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
-                     <Image
-                      src={item.img}
-                      alt={item.name}
-                      fill // Usamos fill para que se adapte al contenedor
-                      className="object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                    {item.img ? (
+                      <Image
+                        src={item.img}
+                        alt={item.name}
+                        fill // Usamos fill para que se adapte al contenedor
+                        className="object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    ) : (
+                      // Fallback panel for projects without a screenshot
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-purple/30 via-[#0C0E23] to-blue-500/20 border border-purple/20 rounded-lg px-6 text-center">
+                        <span className="text-2xl md:text-3xl font-bold text-white">
+                          {item.name}
+                        </span>
+                        {item.title && (
+                          <span className="text-xs text-purple tracking-wide">
+                            {item.title}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    {item.featured && (
+                      <span className="absolute top-3 left-3 z-10 rounded-full bg-purple px-3 py-1 text-xs font-semibold text-black-100">
+                        Destacado
+                      </span>
+                    )}
                   </div>
                   
                   <h2 className="text-xl font-bold text-white mb-1 line-clamp-1">
@@ -74,20 +93,37 @@ const Projects = () => {
                     </p>
                   )}
                   
-                  <p className="text-sm text-gray-300 line-clamp-3 leading-relaxed">
+                  <p
+                    className={`text-sm text-gray-300 leading-relaxed ${
+                      item.featured ? "line-clamp-5" : "line-clamp-3"
+                    }`}
+                  >
                     {item.quote}
                   </p>
+
+                  <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+                    {item.stack.map((tech) => (
+                      <li
+                        key={tech}
+                        className="rounded-full border border-purple/30 bg-purple/10 px-2.5 py-0.5 text-xs text-purple"
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mt-6 flex justify-center">
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <MagicButton
-                      title="Ver proyecto"
-                      icon={<FaLocationArrow />}
-                      position="left"
-                    />
-                  </a>
-                </div>
+                {item.link && (
+                  <div className="mt-6 flex justify-center">
+                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                      <MagicButton
+                        title="Ver proyecto"
+                        icon={<FaLocationArrow />}
+                        position="left"
+                      />
+                    </a>
+                  </div>
+                )}
 
               </div>
             </div>

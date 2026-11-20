@@ -42,6 +42,10 @@ const Hero = () => {
             className="text-center text-[50px] md:text-9xl lg:text-10xl pb-5"
           />
 
+          <h2 className="text-center text-lg md:text-2xl font-semibold text-purple pb-3">
+            Desarrolladora Web y Móvil
+          </h2>
+
           <FlipWords 
           className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80"
           words = {words}/>
@@ -50,10 +54,10 @@ const Hero = () => {
           </div>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Soy una desarrolladora front-end de Piura - Perú, apasionada por crear aplicaciones web modernas, accesibles y centradas en la experiencia del usuario
+          Desarrolladora de software desde 2022, de Piura - Perú. Técnica en Ingeniería de Software (SENATI) y estudiante de la Licenciatura en Ingeniería de Software en la UTP. Diseño y desarrollo aplicaciones y sitios web con TypeScript, React Native, Vue.js, Next.js y WordPress.
           </p>
           <a 
-  href="./CVSELENE.pdf"
+  href="/cv-selene-culquicondor.pdf"
   target="_blank"
   rel="noreferrer"
   className="mt-6"

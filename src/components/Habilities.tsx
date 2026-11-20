@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { skills } from "@/data"; // Asegúrate de que esta ruta sea correcta
+import { skills, type Skill } from "@/data";
 
 // Variantes para el contenedor (controla el orden de aparición)
 const containerVariants = {
@@ -27,7 +26,9 @@ const itemVariants = {
 };
 
 // Sub-componente para cada Icono (para manejar el hover individualmente)
-const SkillItem = ({ item }) => {
+const SkillItem = ({ item }: { item: Skill }) => {
+  const Icon = item.icon;
+
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -45,13 +46,23 @@ const SkillItem = ({ item }) => {
         whileTap={{ scale: 0.9 }}
         className="relative z-10 p-2 border-2 border-white/10 rounded-full bg-black/50 backdrop-blur-sm shadow-lg cursor-pointer hover:border-purple/50 transition-colors duration-300"
       >
-        <Image
-          height={60}
-          width={60}
-          src={item.src}
-          alt={item.name}
-          className="object-contain h-10 w-10 md:h-14 md:w-14"
-        />
+        {Icon ? (
+          <Icon
+            role="img"
+            aria-label={item.name}
+            color={item.color}
+            className="h-10 w-10 md:h-14 md:w-14"
+          />
+        ) : (
+          // Text fallback for skills without a brand icon
+          <span
+            role="img"
+            aria-label={item.name}
+            className="flex h-10 w-10 md:h-14 md:w-14 items-center justify-center text-xs md:text-sm font-bold tracking-wide text-purple"
+          >
+            {item.abbr ?? item.name.slice(0, 2)}
+          </span>
+        )}
       </motion.div>
 
       {/* Tooltip Animado */}
@@ -73,9 +84,6 @@ const SkillItem = ({ item }) => {
 };
 
 const Habilities = () => {
-  // No necesitas useState si los datos son estáticos, pero lo dejo por si acaso los cargas luego
-  const [items] = useState(skills);
-
   return (
     <section className="py-20 w-full relative overflow-hidden" id="skills">
       {/* Fondo decorativo sutil */}
@@ -97,45 +105,25 @@ const Habilities = () => {
       </motion.div>
 
       <div className="max-w-6xl mx-auto px-4 space-y-16">
-        
-        {/* Sección Lenguajes */}
-        <div>
-          <h3 className="text-2xl font-semibold text-center mb-8 text-white/80">
-            <span className="border-b-2 border-purple-500 pb-2">Lenguajes</span>
-          </h3>
-          
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap justify-center gap-8 md:gap-12"
-          >
-            {items.lenguajes.map((item) => (
-              <SkillItem key={item.id} item={item} />
-            ))}
-          </motion.div>
-        </div>
+        {skills.map((group) => (
+          <div key={group.title}>
+            <h3 className="text-2xl font-semibold text-center mb-8 text-white/80">
+              <span className="border-b-2 border-purple-500 pb-2">{group.title}</span>
+            </h3>
 
-        {/* Sección Frameworks */}
-        <div>
-          <h3 className="text-2xl font-semibold text-center mb-8 text-white/80">
-            <span className="border-b-2 border-purple-500 pb-2">Frameworks & Herramientas</span>
-          </h3>
-          
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap justify-center gap-8 md:gap-12"
-          >
-            {items.frameworks.map((item) => (
-              <SkillItem key={item.id} item={item} />
-            ))}
-          </motion.div>
-        </div>
-
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-wrap justify-center gap-8 md:gap-12"
+            >
+              {group.items.map((item) => (
+                <SkillItem key={item.id} item={item} />
+              ))}
+            </motion.div>
+          </div>
+        ))}
       </div>
     </section>
   );

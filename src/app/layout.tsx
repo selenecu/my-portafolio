@@ -6,8 +6,9 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "Selene's Portfolio",
-  description: "Modern Portfolio",
+  title: "Selene Culquicondor | Desarrolladora Web y Móvil",
+  description:
+    "Portafolio de Selene Culquicondor, desarrolladora web y móvil desde 2022. Experiencia con TypeScript, React Native, Vue.js, Next.js, WordPress y PostgreSQL.",
 };
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/react.png" sizes="any" />
       </head>

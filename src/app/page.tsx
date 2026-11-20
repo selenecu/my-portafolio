@@ -1,11 +1,10 @@
 'use client'
 import Hero from "../components/Hero";
 import  {FloatingNavDemo}  from "@/components/NavDemo";
-import  AnimatedTooltipPreview  from "@/components/AnimatedTooltipPreview";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import Habilities from "@/components/Habilities";
-import Approach from "@/components/Approach";
 import Footer from "@/components/Footer";
 
 
@@ -16,10 +15,9 @@ const Home= () =>{
    <FloatingNavDemo />
    <Hero/>
    <Experience/>
+   <Education/>
    <Habilities/>
-   {/* <AnimatedTooltipPreview/> */}
    <Clients/>
-   {/* <Approach /> */}
    <Footer/>
   </div>
 </main>

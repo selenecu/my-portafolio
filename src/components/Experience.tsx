@@ -8,7 +8,7 @@ import {
 
 const Experience = () => {
   return (
-    <div className="py-20 w-full" id="testimonials">
+    <div className="py-20 w-full" id="experience">
       <h1 className="heading">
         Mi <span className="text-purple">experiencia laboral</span>
       </h1>
