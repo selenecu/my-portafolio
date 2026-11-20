@@ -5,6 +5,7 @@ import {
   useAnimationFrame,
   useMotionTemplate,
   useMotionValue,
+  useReducedMotion,
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
@@ -31,7 +32,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl p-[1px] overflow-hidden md:col-span-2 md:row-span-1 ",
+        "bg-transparent relative text-xl p-[1px] overflow-hidden",
         containerClassName
       )}
       style={{
@@ -83,8 +84,11 @@ export const MovingBorder = ({
 }) => {
   const pathRef = useRef<any>();
   const progress = useMotionValue<number>(0);
+  const prefersReducedMotion = useReducedMotion();
 
   useAnimationFrame((time) => {
+    // Hold the highlight still when the user prefers reduced motion.
+    if (prefersReducedMotion) return;
     const length = pathRef.current?.getTotalLength();
     if (length) {
       const pxPerMillisecond = length / duration;

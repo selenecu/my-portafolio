@@ -1,7 +1,6 @@
 import React from "react";
 import { IconSchool } from "@tabler/icons-react";
 import { education } from "@/data";
-import { Button } from "./ui/MovingBorder";
 
 const Education = () => {
   return (
@@ -12,17 +11,9 @@ const Education = () => {
 
       <div className="w-full mt-12 grid lg:grid-cols-2 grid-cols-1 gap-10">
         {education.map((item) => (
-          <Button
+          <article
             key={item.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            style={{
-              background: "rgb(4,7,29)",
-              backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              borderRadius: `calc(1.75rem* 0.96)`,
-            }}
-            className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+            className="rounded-3xl border border-slate-800 bg-gradient-to-r from-[#04071D] to-[#0C0E23] text-white"
           >
             <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
               <IconSchool
@@ -42,7 +33,7 @@ const Education = () => {
                 </p>
               </div>
             </div>
-          </Button>
+          </article>
         ))}
       </div>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getPublishedCaseStudyForProject, testimonials } from "@/data";
@@ -9,27 +9,53 @@ import MagicButton from "./ui/MagicButton";
 // Importaciones de Embla Carousel
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useAmbientMotion } from "@/utils/useAmbientMotion";
+
+const AUTOPLAY_DELAY_MS = 3000;
 
 const Projects = () => {
-  // Configuración del carrusel
-  const [emblaRef] = useEmblaCarousel(
-    { 
-      loop: true, // Carrusel infinito
-      align: "start", // Alineación de las tarjetas
-      skipSnaps: false,
-      dragFree: true, // Sensación de arrastre libre
-    }, 
-    [
-      Autoplay({ 
-        delay: 3000, // Velocidad (3 segundos)
-        stopOnInteraction: false, // Sigue rodando después de tocarlo
-        stopOnMouseEnter: true,   // SE PARA AL PASAR EL MOUSE (Requisito clave)
-      })
-    ]
+  const sectionRef = useRef<HTMLElement>(null);
+  // Plugin instance is created once; play/stop is driven by the effect below.
+  const autoplay = useRef(
+    Autoplay({
+      delay: AUTOPLAY_DELAY_MS,
+      playOnInit: false,
+      stopOnInteraction: true, // Once the user drags or clicks, autoplay stays off
+      stopOnMouseEnter: true,
+      stopOnFocusIn: true,
+    })
   );
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      skipSnaps: false,
+      dragFree: true,
+    },
+    [autoplay.current]
+  );
+  // Autoplay only while visible, motion is allowed, and the user has not taken control.
+  const canAnimate = useAmbientMotion(sectionRef);
+  const [userTookControl, setUserTookControl] = useState(false);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onPointerDown = () => setUserTookControl(true);
+    emblaApi.on("pointerDown", onPointerDown);
+    return () => {
+      emblaApi.off("pointerDown", onPointerDown);
+    };
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const plugin = autoplay.current;
+    if (canAnimate && !userTookControl) plugin.play();
+    else plugin.stop();
+  }, [emblaApi, canAnimate, userTookControl]);
 
   return (
-    <section className="py-20" id="projects">
+    <section ref={sectionRef} className="py-20" id="projects">
       <h1 className="heading relative text-center mb-10">
         Proyectos
         <span className="text-purple"> recientes</span>
@@ -61,7 +87,9 @@ const Projects = () => {
                       <Image
                         src={item.img}
                         alt={item.name}
-                        fill // Usamos fill para que se adapte al contenedor
+                        fill
+                        // Card width per breakpoint (w-[85vw] md:w-[45vw] lg:w-[30vw])
+                        sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 85vw"
                         className="object-cover transition-transform duration-500 hover:scale-110"
                       />
                     ) : (

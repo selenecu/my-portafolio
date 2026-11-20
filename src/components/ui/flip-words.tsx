@@ -1,7 +1,8 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/utils/cn";
+import { useAmbientMotion } from "@/utils/useAmbientMotion";
 
 export const FlipWords = ({
   words,
@@ -12,74 +13,50 @@ export const FlipWords = ({
   duration?: number;
   className?: string;
 }) => {
-  const [currentWord, setCurrentWord] = useState(words[0]);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
-
-  // thanks for the fix Julian - https://github.com/Julian-AT
-  const startAnimation = useCallback(() => {
-    const word = words[words.indexOf(currentWord) + 1] || words[0];
-    setCurrentWord(word);
-    setIsAnimating(true);
-  }, [currentWord, words]);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [index, setIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
+  const canAnimate = useAmbientMotion(ref);
+  // The OS preference is only known on the client; wait for mount to avoid a hydration mismatch.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
-        startAnimation();
-      }, duration);
-  }, [isAnimating, duration, startAnimation]);
+    if (!canAnimate || words.length < 2) return;
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % words.length),
+      duration
+    );
+    return () => clearInterval(id);
+  }, [canAnimate, duration, words.length]);
+
+  // Reduced motion: show every word at once instead of rotating them.
+  if (mounted && prefersReducedMotion) {
+    return (
+      <span ref={ref} className={cn("inline-block", className)}>
+        {words.join(" · ")}
+      </span>
+    );
+  }
 
   return (
-    <AnimatePresence
-      onExitComplete={() => {
-        setIsAnimating(false);
-      }}
+    <span
+      ref={ref}
+      className={cn("relative inline-block", className)}
+      aria-live="off"
     >
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 10,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.4,
-          ease: "easeInOut",
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
-        }}
-        exit={{
-          opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
-          position: "absolute",
-        }}
-        className={cn(
-          "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
-          className
-        )}
-        key={currentWord}
-      >
-        {currentWord.split("").map((letter, index) => (
-          <motion.span
-            key={currentWord + index}
-            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-              delay: index * 0.08,
-              duration: 0.4,
-            }}
-            className="inline-block"
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </motion.div>
-    </AnimatePresence>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={words[index]}
+          className="inline-block"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 };

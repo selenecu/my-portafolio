@@ -1,133 +1,131 @@
+"use client";
 import { FaLocationArrow } from "react-icons/fa6";
-import { useEffect, useRef, useState, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
-import { words } from "@/data";
-import { FlipWords } from "../components/ui/flip-words";
-import { squareData, profile } from "@/data"
+import { FlipWords } from "./ui/flip-words";
+import { words, squareData, profile, type SquareImage } from "@/data";
+import { useAmbientMotion } from "@/utils/useAmbientMotion";
 
 const Hero = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center md:gap-10 gap-4 max-w-6xl mx-auto">
-    <div className="pb-20 pt-36 relative" id="about">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
-        />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
-      </div>
-      <div
-        className="w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        <div
-          // chnage the bg to bg-black-100, so it matches the bg color and will blend in
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
-
-      <div className="flex justify-center relative my-20 z-10">
-        <div className="max-w-[49vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-
-          <TextGenerateEffect
-            words="¡Hola, soy Selene Culquicondor!"
-            className="text-center text-[50px] md:text-9xl lg:text-10xl pb-5"
+    <section className="w-full py-8 lg:py-12 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 max-w-6xl mx-auto md:px-8">
+      <div className="relative pt-20 pb-6 lg:pt-28 lg:pb-16" id="about">
+        <div>
+          <Spotlight
+            className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
+            fill="white"
           />
+          <Spotlight
+            className="h-[80vh] w-[50vw] top-10 left-full"
+            fill="purple"
+          />
+          <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
+        </div>
+        <div
+          className="w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
+       absolute top-0 left-0 flex items-center justify-center"
+        >
+          <div
+            // Same bg as the page so the grid pattern fades out at the edges
+            className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
+         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+          />
+        </div>
 
-          <h2 className="text-center text-lg md:text-2xl font-semibold text-purple pb-3">
+        <div className="relative z-10 mx-auto flex w-full max-w-2xl flex-col items-center text-center">
+          {/* Rendered statically: the name is the LCP element and must read immediately. */}
+          <h1 className="font-display text-white text-[clamp(2.5rem,1.5rem+2.8vw,4.5rem)] leading-[1.05] tracking-[-0.01em] [text-wrap:balance]">
+            ¡Hola, soy Selene Culquicondor!
+          </h1>
+
+          <h2 className="mt-5 text-xl md:text-2xl font-semibold text-purple">
             Desarrolladora Web y Móvil
           </h2>
 
-          <FlipWords 
-          className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80"
-          words = {words}/>
+          <FlipWords
+            className="mt-2 text-base md:text-lg font-medium text-blue-100"
+            words={words}
+          />
 
-          <div className="flex justify-center w-80">
-          </div>
-
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          {profile.bio}
+          <p className="mt-5 max-w-[60ch] text-base md:text-lg leading-relaxed text-white-100 [text-wrap:pretty]">
+            {profile.bio}
           </p>
-          <a 
-  href="/cv-selene-culquicondor.pdf"
-  target="_blank"
-  rel="noreferrer"
-  className="mt-6"
->
-  <MagicButton
-    title="Descargar CV"
-    icon={<FaLocationArrow />}
-    position="right"
-  />
-</a>
 
+          <a
+            href="/cv-selene-culquicondor.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 w-full md:w-auto"
+          >
+            <MagicButton
+              title="Descargar CV"
+              icon={<FaLocationArrow />}
+              position="right"
+            />
+          </a>
         </div>
       </div>
-    </div>
-    <ShuffleGrid />
+      <ShuffleGrid />
     </section>
   );
 };
-const shuffle = (array: (number | string)[]): (number | string)[] => {
-  let currentIndex = array.length,
-    randomIndex;
 
-  while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+const SHUFFLE_INTERVAL_MS = 6000;
+// Tiles rendered with high priority: the first row of the deterministic initial order.
+const PRIORITY_TILES = 4;
 
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
+// Returns a new shuffled copy (Fisher-Yates); never mutates the input.
+const shuffle = <T,>(items: readonly T[]): T[] => {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
   }
-  return array;
-};
-const generateSquares = () => {
-  return shuffle(squareData.map(sq => sq.image)).map((src) => (
-    <motion.div
-      key={src}
-      layout
-      transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full"
-      style={{
-        backgroundImage: `url(${src})`,
-        backgroundSize: "cover",
-      }}
-    ></motion.div>
-  ));
+  return result;
 };
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef<null | NodeJS.Timeout>(null);
-  const [squares, setSquares] = useState(generateSquares());
-
-  const shuffleSquares: () => void = useCallback(() => {
-    setSquares(generateSquares());
-    timeoutRef.current = setTimeout(shuffleSquares, 3000);
-  }, [setSquares, timeoutRef]);
+  const gridRef = useRef<HTMLDivElement>(null);
+  // Deterministic initial order so server and client render the same markup.
+  const [order, setOrder] = useState<SquareImage[]>(squareData);
+  const canAnimate = useAmbientMotion(gridRef);
 
   useEffect(() => {
-    shuffleSquares();
-
-    return () => {
-      if (timeoutRef.current !== null) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [shuffleSquares]);
+    if (!canAnimate) return;
+    const id = setInterval(
+      () => setOrder((prev) => shuffle(prev)),
+      SHUFFLE_INTERVAL_MS
+    );
+    return () => clearInterval(id);
+  }, [canAnimate]);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
-      {squares.map((sq) => sq)}
+    <div
+      ref={gridRef}
+      className="grid grid-cols-4 grid-rows-3 h-[340px] md:h-[450px] gap-1"
+    >
+      {order.map((sq) => (
+        <motion.div
+          key={sq.id}
+          layout
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          // The first tile spans two columns so 11 photos fill the 4x3 grid.
+          className="relative overflow-hidden first:col-span-2"
+        >
+          <Image
+            src={sq.image}
+            alt={sq.alt}
+            fill
+            // Widest tile: ~2 of 4 columns (half the grid); smaller tiles reuse it.
+            sizes="(min-width: 1152px) 280px, (min-width: 1024px) 25vw, 50vw"
+            priority={squareData.findIndex((s) => s.id === sq.id) < PRIORITY_TILES}
+            className="object-cover"
+          />
+        </motion.div>
+      ))}
     </div>
   );
 };

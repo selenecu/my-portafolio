@@ -26,6 +26,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "Georgia", "serif"],
+      },
       colors: {
         black: {
           DEFAULT: "#000",

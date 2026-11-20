@@ -68,7 +68,7 @@ const Footer = () => {
 
       {/* Derechos reservados */}
       <div className="flex mt-16 justify-center items-center">
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-400">
           © {new Date().getFullYear()} Selene Culquicondor. Todos los derechos reservados.
         </p>
       </div>

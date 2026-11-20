@@ -237,70 +237,68 @@ export const skills: SkillGroup[] = [
   },
 ];
 
-export const squareData = [
+export type SquareImage = {
+  id: number;
+  image: string;
+  alt: string;
+};
+
+// Only Selene's own photos: stock images were removed so the grid stays authentic.
+export const squareData: SquareImage[] = [
   {
     id: 1,
     image: "/utp.jpg",
+    alt: "Selene sonriendo junto a los cubos rojos y negros con el logo de la UTP en la entrada del campus",
   },
   {
     id: 2,
     image: "/arbol.jpg",
+    alt: "Selene de pie en un camino de tierra rodeado de árboles altos",
   },
   {
     id: 3,
     image: "/cita.jpg",
+    alt: "Retrato de Selene sentada a una mesa, mirando a un lado, de noche",
   },
   {
     id: 4,
     image: "/laboratorio.jpg",
+    alt: "Selfie de Selene con lentes y bata blanca de laboratorio en la universidad",
   },
   {
     id: 5,
     image: "/1.jpg",
+    alt: "Retrato de Selene sonriendo con el polo de la empresa TGI",
   },
   {
     id: 6,
     image: "/2.jpg",
+    alt: "Pantalla con el sistema de supervisión «Sistema de Mezclado 3» desarrollado en TGI",
   },
   {
     id: 7,
     image: "/3.jpg",
+    alt: "Escritorio con un monitor mostrando código Vue en el editor y documentación de AG Grid",
   },
   {
     id: 8,
     image: "/4.jpg",
+    alt: "Casco de seguridad blanco con el nombre «Selene C.» frente a un monitor con código",
   },
   {
     id: 9,
     image: "/5.jpg",
+    alt: "Atrio de varios pisos del campus de la UTP con estudiantes reunidos",
   },
   {
     id: 10,
     image: "/6.jpg",
+    alt: "Libreta de TGI con notas de tareas a mano junto a un monitor con código",
   },
   {
     id: 11,
     image: "/7.jpg",
-  },
-  {
-    id: 12,
-    image: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=882&q=80",
-  },
-  {
-    id: 13,
-    image: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 14,
-    image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-  },
-  {
-    id: 15,
-    image: "https://images.unsplash.com/photo-1606244864456-8bee63fce472?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80",
-  },
-  {
-    id: 16,
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
+    alt: "Selene en la orilla de la playa con un vestido celeste bajo un cielo nublado",
   },
 ];
 
