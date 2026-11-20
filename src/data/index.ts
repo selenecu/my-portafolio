@@ -19,6 +19,8 @@ import {
 import { TbSql } from "react-icons/tb";
 
 export type Project = {
+  // Stable identifier used to link a Case Study to this Project.
+  id: string;
   quote: string;
   name: string;
   title?: string;
@@ -31,6 +33,7 @@ export type Project = {
 // Rendered as the "Proyectos" carousel (src/components/Clients.tsx).
 export const testimonials: Project[] = [
   {
+    id: "piura-innova-2026",
     quote:
       "Solución digital de inventarios forestales para el bosque seco, desarrollada en 2 días. Implementé identificadores, captura de coordenadas, validación de variables y exportación de datos, y comparé errores y tiempos de procesamiento del inventario. Organizado por la Cámara de Comercio y Producción de Piura y Google Developer Group Piura.",
     name: "Piura Innova 2026",
@@ -50,6 +53,7 @@ export const testimonials: Project[] = [
     featured: true,
   },
   {
+    id: "consulta-de-datos",
     quote:
       "Aplicación web que integra una API externa para obtener información de identidad a partir del número de documento. Desarrollé validaciones, manejo de errores y una interfaz responsiva para una mejor experiencia de usuario.",
     name: "Consulta de Datos",
@@ -59,6 +63,7 @@ export const testimonials: Project[] = [
     stack: ["React", "TypeScript", "Vite"],
   },
   {
+    id: "pokedex",
     quote:
       "Aplicación web desarrollada con React y TailwindCSS, que consume la API pública de Pokémon para mostrar información dinámica de personajes. Implementé búsqueda, paginación y visualización detallada de cada Pokémon.",
     name: "Pokédex",
@@ -68,6 +73,7 @@ export const testimonials: Project[] = [
     stack: ["React", "TailwindCSS"],
   },
   {
+    id: "ruleta-amigo-secreto",
     quote:
       "Aplicación web para realizar sorteos de Amigo Secreto de manera rápida, segura y divertida. El organizador ingresa a los participantes, ejecuta la ruleta y se genera un link único con los resultados encriptados en la URL. Cada participante solo puede ver su propio resultado, garantizando privacidad total.",
     name: "Ruleta Aleatoria — Amigo Secreto",
@@ -166,6 +172,21 @@ export const socialMedia = [
 ];
 
 export const contactEmail = "seleneculquicondor@gmail.com";
+
+// Personal profile, reused by the Hero, JSON-LD and llms.txt.
+export const profile = {
+  fullName: "Selene Culquicondor Ushiñahua",
+  displayName: "Selene Culquicondor",
+  jobTitle: "Desarrolladora Web y Móvil",
+  location: { locality: "Piura", country: "PE", label: "Piura - Perú" },
+  currentEmployer: { name: "TGI Ingeniería", url: "https://tgiperu.com/" },
+  bio: "Desarrolladora de software desde 2022, de Piura - Perú. Técnica en Ingeniería de Software (SENATI) y estudiante de la Licenciatura en Ingeniería de Software en la UTP. Diseño y desarrollo aplicaciones y sitios web con TypeScript, React Native, Vue.js, Next.js y WordPress.",
+};
+
+// Public professional profiles (excludes messaging channels such as WhatsApp).
+export const professionalProfiles = socialMedia.filter((s) =>
+  ["GitHub", "LinkedIn"].includes(s.name)
+);
 
 export const words = ["TypeScript", "React-Native", "Vue/Next.js", "WordPress"];
 
@@ -282,3 +303,106 @@ export const squareData = [
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
   },
 ];
+
+export type CaseStudySection = {
+  heading: string;
+  body: string[];
+};
+
+export type CaseStudyMetric = {
+  label: string;
+  value: string;
+  detail?: string;
+};
+
+export type CaseStudyImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type CaseStudy = {
+  slug: string;
+  // Id of the Project this Case Study expands on.
+  projectId: Project["id"];
+  // Unpublished Case Studies are hidden in production and excluded from the sitemap.
+  published: boolean;
+  title: string;
+  subtitle: string;
+  summary: string;
+  // Order: Problema, Mi rol, Decisiones técnicas, Resultado, Aprendizajes.
+  sections: CaseStudySection[];
+  // Reused from the linked Project so both stay in sync.
+  stack: string[];
+  images?: CaseStudyImage[];
+  metrics?: CaseStudyMetric[];
+};
+
+function projectStack(projectId: string): string[] {
+  const project = testimonials.find((p) => p.id === projectId);
+  if (!project) throw new Error(`Unknown project id: ${projectId}`);
+  return project.stack;
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "piura-innova-2026",
+    projectId: "piura-innova-2026",
+    published: false,
+    title: "Inventario forestal digital para el bosque seco",
+    subtitle:
+      "Piura Innova 2026 · Hackathon Regional de Innovación · Octubre 2026 · Equipo TGI Ingeniería",
+    summary:
+      "Solución digital de inventarios forestales para el bosque seco, desarrollada en 2 días durante la hackathon organizada por la Cámara de Comercio y Producción de Piura y Google Developer Group Piura.",
+    sections: [
+      {
+        heading: "Problema",
+        body: [
+          "El inventario forestal del bosque seco requiere registrar cada individuo con su identificador, su ubicación y sus variables de medición.",
+          "[PENDIENTE: describir cómo se realizaba el inventario antes de la solución (papel, hojas de cálculo, GPS separado), cuánto tiempo tomaba y qué errores eran frecuentes.]",
+        ],
+      },
+      {
+        heading: "Mi rol",
+        body: [
+          "Implementé los identificadores, la captura de coordenadas, la validación de variables y la exportación de datos, y comparé los errores y tiempos de procesamiento del inventario.",
+          "[PENDIENTE: indicar el tamaño del equipo y la parte concreta que me tocó frente a la del resto del equipo.]",
+        ],
+      },
+      {
+        heading: "Decisiones técnicas",
+        body: [
+          "La solución se construyó con TypeScript de extremo a extremo: React Native (Expo) en el cliente móvil, Hono y tRPC en el servidor, Drizzle ORM sobre PostgreSQL y Better-Auth para la autenticación, ejecutado con Bun.",
+          "[PENDIENTE: explicar una decisión técnica concreta (por ejemplo, por qué tRPC o cómo se validan las variables en el dispositivo) y por qué se tomó frente a la alternativa.]",
+        ],
+      },
+      {
+        heading: "Resultado",
+        body: [
+          "[PENDIENTE: comparación medida de errores y tiempos de procesamiento entre el método anterior y la solución, y el resultado obtenido en la hackathon (puesto o reconocimiento).]",
+        ],
+      },
+      {
+        heading: "Aprendizajes",
+        body: [
+          "[PENDIENTE: dos o tres aprendizajes concretos (técnicos o de trabajo en equipo bajo presión de tiempo).]",
+        ],
+      },
+    ],
+    stack: projectStack("piura-innova-2026"),
+    images: [],
+    metrics: [],
+  },
+];
+
+export const getCaseStudy = (slug: string) =>
+  caseStudies.find((c) => c.slug === slug);
+
+export const getProject = (id: string) =>
+  testimonials.find((p) => p.id === id);
+
+export const publishedCaseStudies = () =>
+  caseStudies.filter((c) => c.published);
+
+export const getPublishedCaseStudyForProject = (projectId: string) =>
+  caseStudies.find((c) => c.published && c.projectId === projectId);

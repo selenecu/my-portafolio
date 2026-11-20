@@ -6,7 +6,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
 import { words } from "@/data";
 import { FlipWords } from "../components/ui/flip-words";
-import { squareData } from "@/data"
+import { squareData, profile } from "@/data"
 
 const Hero = () => {
   return (
@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Desarrolladora de software desde 2022, de Piura - Perú. Técnica en Ingeniería de Software (SENATI) y estudiante de la Licenciatura en Ingeniería de Software en la UTP. Diseño y desarrollo aplicaciones y sitios web con TypeScript, React Native, Vue.js, Next.js y WordPress.
+          {profile.bio}
           </p>
           <a 
   href="/cv-selene-culquicondor.pdf"

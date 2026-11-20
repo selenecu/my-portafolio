@@ -8,6 +8,8 @@
 
 **Featured Project**: The Project placed first because it best demonstrates current skills (currently: Piura Innova 2026 hackathon solution).
 
+**Case Study**: The long-form story of a Featured Project — the problem, Selene's role, the decisions she made, and a measurable result. A Project card only summarizes; the Case Study explains.
+
 **Experience entry**: A role at an organization over a date range. A promotion within the same organization is shown as a progression (e.g. Practicante → Desarrolladora), not merged into one role.
 
 **Skill**: A technology Selene has used in real work and can defend in a technical interview. The portfolio and the CV list the same Skills.

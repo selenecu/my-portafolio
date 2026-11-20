@@ -2,13 +2,29 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import { SITE_URL, siteConfig } from "@/config/site";
+import PersonJsonLd from "@/components/PersonJsonLd";
 
 const inter = Inter({ subsets: ["latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "Selene Culquicondor | Desarrolladora Web y Móvil",
-  description:
-    "Portafolio de Selene Culquicondor, desarrolladora web y móvil desde 2022. Experiencia con TypeScript, React Native, Vue.js, Next.js, WordPress y PostgreSQL.",
+  metadataBase: new URL(SITE_URL),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "profile",
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
 };
 
 export default function RootLayout({
@@ -22,6 +38,7 @@ export default function RootLayout({
         <link rel="icon" href="/react.png" sizes="any" />
       </head>
       <body className={inter.className}>
+        <PersonJsonLd />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

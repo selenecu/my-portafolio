@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { testimonials } from "@/data";
+import Link from "next/link";
+import { getPublishedCaseStudyForProject, testimonials } from "@/data";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/MagicButton";
 
@@ -45,10 +46,10 @@ const Projects = () => {
         {/* --- Contenedor Flexible (Track) --- */}
         <div className="flex gap-8"> {/* Gap entre tarjetas */}
           
-          {testimonials.map((item, idx) => (
+          {testimonials.map((item) => (
             // --- Slide Individual ---
             <div
-              key={idx}
+              key={item.id}
               // min-w define el ancho de la tarjeta en diferentes pantallas
               className="relative flex-none w-[85vw] md:w-[45vw] lg:w-[30vw] h-auto"
             >
@@ -112,6 +113,21 @@ const Projects = () => {
                     ))}
                   </ul>
                 </div>
+
+                {(() => {
+                  // Shown only once a published Case Study exists for this Project.
+                  const caseStudy = getPublishedCaseStudyForProject(item.id);
+                  return caseStudy ? (
+                    <div className="mt-6 flex justify-center">
+                      <Link
+                        href={`/proyectos/${caseStudy.slug}`}
+                        className="text-sm font-semibold text-purple hover:underline"
+                      >
+                        Ver caso de estudio →
+                      </Link>
+                    </div>
+                  ) : null;
+                })()}
 
                 {item.link && (
                   <div className="mt-6 flex justify-center">
